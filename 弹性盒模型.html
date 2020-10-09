@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性盒模型</title>
+    <style>
+        div {
+        display: flex;
+        align-items: center;
+        /* justify-content: space-around; */
+}
+        #box{
+            display: flex; 
+            flex-wrap: wrap;
+            /*沿主轴的每一行的分布*/
+
+
+        }
+
+        #box1{
+            background-color: blueviolet;
+            
+            /*每个flex 项将首先给出200px的可用空间
+            flex: 200px;*/
+            
+            /*每个flex 项将首先给出200px的可用空间，然后，
+            剩余的可用空间将根据分配的比例共享(2是下一个#box2，一个块所占比率)*/
+            flex:2 200px;
+            margin: 2px;
+        }
+        #box2{
+            background-color: blueviolet;
+            flex: 20px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="box1">tttttttttttttttt</div>
+        <div id="box1">2</div>
+        <div id="box1">3</div>
+        <div id="box1">4</div>
+        <div id="box1">5</div>
+        <div id="box2">ff</div>
+        <div id="box2">ff</div>
+
+    </div>
+    
+</body>
+</html>
