@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+    
+</head>
+<body>
+    <script>
+        a();/*函数提升*/
+        function a(){
+            console.log("hah");
+        }
+        
+        /*函数表达式没有函数提升*/
+        var fin=function(){
+            console.log("艾哈德");
+        }
+      fin();
+
+        
+      
+
+
+
+      function re(x){
+          return 2-x;
+      }
+      var x=re(3);
+      console.log(x);
+
+    </script>
+</body>
+</html>
