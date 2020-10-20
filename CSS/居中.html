@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 1000px;
+            
+        }
+        div{
+            display: flex;
+            flex-wrap: wrap;
+            width: 200px;
+            height: 200px;
+
+            align-items: center; /*控制 flex 项在交叉轴上的位置*/
+
+            /* justify-content: space-around; */
+            /*水平居中（用了伸缩盒模型） 1 */
+            justify-content: center; 
+
+            align-content: center; /*有点像垂直方向居中的感觉*/
+             /*这与调准伸缩项目在主轴上对齐方式的 <' justify-content '> 属性类似。
+            请注意本属性在只有一行的伸缩容器上没有效果。*/
+
+            border: antiquewhite 2px solid;
+            /* 
+            水平居中 2
+            margin-left: auto;
+            margin-right: auto; */
+            /*
+            居中3
+            行级元素居中可以看作文本处理，text-align和line-height*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button>hah</button> 
+        <button>bbab</button>
+        <button>sdd</button>
+        <button>sdd</button>
+        <button>wf</button>
+        <button>wqere</button>
+        <button>wqere</button>
+    </div>
+</body>
+</html>

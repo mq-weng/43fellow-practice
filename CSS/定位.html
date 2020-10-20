@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            
+            width:2000px;
+            height:2000px;
+            
+        }
+        #box{
+            width: 500px;
+            height: 500px;
+            background-color: rosybrown;
+            border: solid black 1px;
+            /*边框圆角化*/
+            border-radius: 20px;
+           
+        }
+        .box1{
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+        .box2{
+            background-color: pink;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            /*相对自己位置发生变化
+              不脱离文档流（之前位置保留）
+            position: relative;
+            */
+
+            /*脱离文档流
+              位置计算按最近的父级的定位（向上找position,直至body即按浏览器定位）
+            position: absolute;
+            */
+
+            /*位置相对浏览器
+              脱离文档流，之前所在位置呗释放
+
+              固定位置（会使宽度由内容撑开而不是和父级一样）
+            position: fixed;
+            */
+
+            
+            position:sticky;
+            top:0px;
+        }
+        .box3{
+            background-color: rgb(255, 0, 200);
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+
+    
+    
+</body>
+</html>
