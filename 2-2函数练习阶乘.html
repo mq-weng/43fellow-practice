@@ -1,0 +1,12 @@
+<script>
+    function test(x){
+        if(x==0){
+            return 1;
+        }
+        else
+        return x*test(x-1);
+    }
+
+    var a=test(4);
+    console.log(a);
+</script>
