@@ -8,21 +8,32 @@
 </head>
 <body>
     <script>
-        a();/*函数提升*/
+        a();/*1 函数提升*/
         function a(){
             console.log("hah");
         }
         
-        /*函数表达式没有函数提升*/
+        /*2 函数表达式没有函数提升*/
         var fin=function(){
             console.log("艾哈德");
         }
       fin();
 
+        //函数式编程
+      function test(a){
+        a(function (c){
+            c();
+        });
+      }
+      test(function (b){
+           b(
+            function (){
+                console.log('哈哈');
+            }
+           )
+      });
 
-      
-
-      /*词法作用域：指函数在定义(或声明)他们的作用域里运行
+      /*3 词法作用域：指函数在定义(或声明)他们的作用域里运行
       而不是在执行（或调用）他们的作用域里运行*/
       var value=1;
       function foo(){
@@ -34,6 +45,54 @@
           foo();
       }
       bar();
+
+      //注意这种情况
+      var x = 5;
+        function test5(){
+            console.log(x);
+            var x = 6; //在函数内部不加var声明的变量也是全局的
+        }
+        test5();
+        console.log(x); 
+
+
+
+      /*4 在函数内部不加var 声明的变量也是全局变量*/
+      function test1(){
+          x=0;
+      }
+      test1();
+      console.log(x);
+
+      /*4 闭包:在外部函数的内部声明内部函数，
+        在内部函数里引用了外部函数的局部变量
+        当外部函数调用完毕后，局部变量不被释放.
+      */
+      function test2(){
+          var a=3;
+          function test3(){
+              return a+3;
+          }
+          return test3;   //这里别忘记写哦
+      }
+      var s=test2()();
+      console.log(s);
+
+
+      /*5 函数立即调用*/
+      //每隔一秒打印一个数
+            for(var i=0;i<3;i++){
+                (function (index){  //函数立即调用
+                    setTimeout(
+                        function (){
+                            console.log(index);
+                        },(index+1)*1000
+                    )
+                })(i);
+            }
+      
+      
+            
 
       /*原型链的查找过程*/
       
