@@ -1,0 +1,68 @@
+<script>
+    /*   1   */
+    //{}对象直接量
+    var obj1 = {
+        fun: function () {
+            console.log("hello world")
+        },
+        name: 'lili'
+    }
+    //调用
+    obj1.fun();
+    console.log(obj1.name);
+
+    /*  2   */
+    //每new一个都在堆里开辟空间
+    var obj = new Object();
+    obj.fun = function () {
+        console.log('第一种创建对象的方式');
+    }
+
+    obj.name = '丽丽';
+    obj['gender'] = 'male';
+
+    console.log(obj['name']);
+
+
+
+    /*  3  */
+    //Object.creat()  拟类
+
+
+
+
+
+    /*  4  */
+    //es5 定义类,属性放在构造函数中，方法放在原型里
+    function Person() {
+
+    }
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.sayHello = function () {
+        console.log("hello world !");
+    }
+    var p = new Person();
+    p.sayHello();
+    var p1 = new Person('丽丽', 18);  //别忘了new
+    console.log(p1);
+
+    //es5 之后（es6）
+    class Person1 {
+        constructor(name) {
+            this.name = name;
+        }
+        test() {
+            console.log("哈哈哈");
+        }
+    }
+    var p = new Person1();
+    p.test();
+    var q = new Person1('huahua');
+    console.log(q.name);
+
+
+
+</script>

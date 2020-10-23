@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*注意if语句不能重复判断 第四章 1题*/
+
+        /*第三章习题*/
+        //   1
+        function max(x, y) {
+            return x >= y ? x : y;
+        }
+        var x = Math.random();
+        var y = Math.random();
+        var result = max(x, y);
+        console.log(result);
+
+        //     2
+        function leapYear(x) {
+            if (x % 400 == 0 || (x % 4 == 0 && x % 100 != 0)) console.log("今天是闰年");
+            else
+                console.log("今年不是闰年");
+        }
+        var today = new Date();
+        var year = today.getFullYear();
+        leapYear(year);
+
+
+        /*第四章习题*/
+        // 1                 ????????
+        function judge(x) {
+            if (x < 14) return "儿童";
+            if (x < 24) return "青少年";
+            if (x < 40) return "青年";
+            if (x < 60) return "中年";
+            if (x > 60) return "老年";
+        }
+        var userAge = prompt("请输入年龄");
+        document.write(judge(userAge));
+        document.write('<br>');
+
+        //   2
+        function trans(x) {
+            switch (x) {
+                case "0":
+                    return "星期日";
+                    break;
+                case "1":
+                    return "星期一";
+                    break;
+                case "2":
+                    return "星期二";
+                    break;
+                case "3":
+                    return "星期三";
+                    break;
+                case "4":
+                    return "星期四";
+                    break;
+                case "5":
+                    return "星期五";
+                    break;
+                case "6":
+                    return "星期六";
+            }
+        }
+        //     var num=prompt('请输入一个数字');
+        //    alert(trans(num));
+
+        //      3
+        function factorial(x) {
+            if (x == 0) return 1;
+            else
+                return x * factorial(x - 1);
+        }
+        console.log(factorial(10));
+
+        //   4
+        var y = 0;
+        function add(x) {
+            for (var i = 1; i <= x; i++) {
+                y = y + factorial(i);
+            }
+            return y;
+        }
+        console.log(add(10));
+
+        //   5
+        function printStar(x) {
+            for (var i = 0; i < x; i++) {
+                for (var j = 0; j <= i; j++) {
+                    document.write(j + 1 + " ");
+                }
+                document.write('<br>');
+            }
+        }
+        printStar(5);
+
+        //   6
+        function printStar1(x) {
+            for (var i = 0; i < x; i++) {
+                for (var j = 0; j < x - i - 1; j++) {
+                    document.write('&nbsp');
+                }
+                for (var j = 0; j < i + 1; j++) {
+                    document.write("*" + " ");
+                }
+                document.write('<br>');
+            }
+        }
+        printStar1(5);
+
+        //   7
+        function fun1() {
+            for (var i = 100; i <= 999; i++) {
+                if ((i % 4 == 2) && (i % 7 == 3) && (i % 9 == 5)) {
+                    document.write(i);
+                    document.write('<br>');
+                }
+            }
+        }
+        fun1();
+
+        //     8
+        function fun2() {
+            var a, b, c;
+            for (var i = 1000; i < 9999; i++) {
+                if (i % 13 == 0) {
+                    a = Math.floor(i / 1000);
+                    b = Math.floor((i % 1000) / 100);
+                    c = Math.floor((i % 100) / 10);
+                    if (a == (b + c)) {
+                        document.write(i);
+                        document.write('<br>');
+                    }
+                }
+            }
+        }
+        fun2();
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

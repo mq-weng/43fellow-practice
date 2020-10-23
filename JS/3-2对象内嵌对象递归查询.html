@@ -1,0 +1,35 @@
+<script>
+    /*递归  一定要有出口*/
+    var obj = new Object();
+    obj.name = 'xiaozhang';
+    obj.brother = {
+        name: 'lisi',
+        age: 33,
+        wife: {
+            name: 'fangfang',
+            age: 30,
+            sayHello:function(){
+                console.log("hello");
+            },
+            sister: {
+                name:'meimei',
+                age:25
+            }
+        }
+    }
+    function printObject(obj) {
+        for (prop in obj) {
+            if (typeof obj[prop] == 'object') {
+                printObject(obj[prop]);
+            }
+            else if (typeof obj[prop] == 'function') {
+                obj[prop]();
+            }
+            else
+                console.log(obj[prop]);
+        }
+    }
+    printObject(obj);
+
+
+</script>

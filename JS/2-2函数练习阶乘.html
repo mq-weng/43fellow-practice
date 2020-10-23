@@ -10,7 +10,17 @@
     var a=test(4);
     console.log(a);
 
-
+//阶乘之和
+var f=1;
+var sum=0;
+function fun(x){
+    for(var i=1;i<=x;i++){
+        f=f*i;
+        sum=f+sum;
+    }
+    return sum;
+}
+console.log(fun(3));
 
 
     

@@ -1,0 +1,63 @@
+<script>
+    /*第五章习题*/
+    //   1
+    // function fun1(x){
+    //     return x*x+3*x+2;
+    // }
+    // var x=prompt('输入x值');
+    // document.write(fun1(x));
+    // document.write('nbsp');
+
+    //    2 略
+    //    3
+    function fun2(x) {
+
+        if (x % 3 == 0 && x % 5 == 0 && x % 7 == 0) {
+            document.write("yes");
+        }
+        else
+            document.write("no");
+        document.write("<br>");
+        var num = 0;
+        for (var i = 1; i <= 1000; i++) {
+            if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0) {
+                num++;
+                document.write(i + " ");
+                if (num % 6 == 0) {
+                    document.write('<br>');
+                }
+            }
+        }
+    }
+    // var x1 = prompt('输入x值');
+    // fun2(x1);
+
+
+    //      4
+    function fun4(x) {
+        for (var i = 2; i < x; i++) {
+            if (x % i== 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    function fun3() {
+        var num = 0;
+        for (var i = 100; i <=  1000; i++) {
+            if (fun4(i)) {
+                document.write(i+" ");
+                num++;
+                if (num % 6 == 0) {
+                    document.write('<br>');
+                }
+            }
+
+        }
+    }
+
+    fun3();
+
+    //    6 和第四章5题一样
+
+</script>
