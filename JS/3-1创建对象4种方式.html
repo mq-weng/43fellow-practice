@@ -25,11 +25,13 @@
 
 
 
-    /*  3  */
-    //Object.creat()  拟类
-
-
-
+    /*  3  */   /*原型链查找过程*/ //??????????????
+    //Object.creat()  利用一个对象创建另一个对象,
+    //使用现有的对象来提供新创建的对象的__proto__
+    var o1=Object.create(obj);
+    o1.name='哈哈哈哈';
+    document.write(o1.name);
+    document.write(obj.name);
 
 
     /*  4  */
