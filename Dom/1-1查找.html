@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom查找</title>
+</head>
+
+<body>
+
+    <button id='btn'>戳我</button>
+    <ul class='item1'>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul id='item'>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul id='item2'>
+        <li>item</li>
+        <li class='li2'>item</li>
+        <li>item</li>
+    </ul>
+
+    <script>
+        /**
+         *context 搜索的上下文（搜索文件的范围）
+         *
+        */
+        //  1   通过元素 id查找 
+        var btn = document.getElementById('btn');
+        var boot = document.getElementById;
+        document.write(btn);    //对象按钮
+        document.write('<br>');
+        document.write(boot);   //getElementById函数内容
+
+
+
+        //  2   通过元素标签名称查找
+        // var aLi = document.getElementsByTagName('li');
+        var oUl = document.getElementById('item');
+        var aLi2 = oUl.getElementsByTagName('li');
+        // for (var i = 0; i < aLi.length; i++) {
+        //     aLi[i].style.background = 'pink';
+        // }
+        for (var i = 0; i < aLi2.length; i++) {
+            aLi2[i].style.background = 'blue';
+        }
+
+    </script>
+</body>
+
+</html>
