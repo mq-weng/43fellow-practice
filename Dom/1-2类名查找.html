@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <button id='btn'>戳我</button>
     <ul class='item1'>
@@ -18,11 +20,11 @@
         <li>3</li>
     </ul>
     <ul id='item2'>
-        <li>item</li>
+        <li class='li2 item3'>item</li>
         <li class='li2'>item</li>
         <li>item</li>
     </ul>
-    
+
     <script>
         //  3   通过元素类名查找在ie8浏览器之前不支持
         //命名a开头是array,o开头是object
@@ -31,19 +33,22 @@
 
         function getByClassName(tagName, className, context) {
             var aLi = context.getElementsByTagName(tagName);
-            var elements=[];
-            for (var i = 0; i < aLi.length; i++){
-                if(aLi[i].className==className){
+            var elements = [];
+            for (var i = 0; i < aLi.length; i++) {
+                if (aLi[i].className.indexOf(className) != -1) {    //多类
+                
+                //此处需要正则来处理（如果字符串包含了classname，indexOf不好使）
+
                     elements.push(aLi[i]);
                 }
             }
             return elements;
         }
- 
+
         var oUl2 = document.getElementById('item2');
-        var aLi3=getByClassName('li','li2',oUl2);       //注意引号
-        for (var i=0;i<aLi3.length;i++){
-            aLi3[i].style.background='red';
+        var aLi3 = getByClassName('li', 'li2', oUl2);       //注意引号
+        for (var i = 0; i < aLi3.length; i++) {
+            aLi3[i].style.background = 'red';
         }
 
         //  3.2 ie8之后 getElementsByClassName
@@ -53,4 +58,5 @@
         // }
     </script>
 </body>
+
 </html>

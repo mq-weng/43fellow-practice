@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class='item1'>
+        <li class="item3">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul id='item'>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul id='item2'>
+        <li class='li2 item3'>item</li>
+        <li class='li2'>item</li>
+        <li>item</li>
+    </ul>
+
+    <script>
+        var oUl=document.querySelector('#item');
+        oUl.style.background='blue';
+
+        var aLi=document.querySelectorAll('.item3');
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].style.background='red';
+        }
+    </script>
+</body>
+</html>
