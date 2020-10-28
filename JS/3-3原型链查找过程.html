@@ -1,14 +1,16 @@
 <script>
+
+
+    /*原型链查找过程先查Object里，再查找_proto_里的*/
     obj1={
         name:'lili',
         age:23,
-        fun:function() {
-            document.write('haha!');
+        fun:function(){
+           console.log("哈哈");
         }
     }
-
     var obj2=Object.create(obj1);
-    obj1.name='fangfang';
+    obj2.age=0;
     console.log(obj1);
     console.log(obj2);
 </script>
