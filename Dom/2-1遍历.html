@@ -1,16 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>遍历</title>
+    <title>Dom遍历</title>
 </head>
+
 <body>
-    
-
-
+    <div class='item1'>
+        <h1 id='h11'>Dom遍历咯</h1>
+        <p>
+            你问我死后会去哪里，有没有人爱你
+        </p>
+    </div>
+    <div class='item2'>
+        <h1 id='h21'>Dom,dnhb</h1>
+        <ul id='ul1'>
+            <li>q</li>
+            <li>def</li>
+            <li>ef</li>
+        </ul>
+        <ul>sfw</ul>
+    </div>
     <script>
-        
+        var oh1 = document.getElementById('h11');
+        console.log(oh1.nextElementSibling);//ie旧版本不好使
+        console.log(oh1.nextSibling);//都能用，但高版本打出来可能是是回车符号
+        //封装一个next 方法，在所有浏览器中都可以返回下一个兄弟节点
+        function next(elem) {
+            do {
+                elem = elem.nextSibling;
+            } while (elem && elem.nodeType != 1);
+            return elem;
+        }
+        console.log(next(oh1));
+
+
+        var oh2 = document.getElementById('h21');
+        console.log(oh2.firstElementChild);//ie旧版本不好使
+        console.log(oh2.firstChild);//都能用，但高版本打出来可能是是回车符号 
+
+
+         var oUl = document.getElementById('ul1');
+        console.log(oUl.firstElementChild);
+        console.log(oUl.firstChild);  //还是回车哦，但没有兼容问题
+        function first(elem){
+            elem=elem.firstChild;
+            return elem&&elem.nodeType!=1?next(elem):elem;//在‘孩子’的兄弟里找
+        } 
+        first(oUl).style.background='red';
     </script>
 </body>
+
 </html>

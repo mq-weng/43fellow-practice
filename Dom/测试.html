@@ -3,37 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>dom遍历</title>
 </head>
 <body>
+    <h1 id="h11">这是一个h1</h1>
+    <p>这是一个p</p>
+
+    <div id="div1">
+        123456
+        <!-- 1234567 -->
+        <h1 id="h12">这是第二个h1</h1>
+        <p id="p2">这是第二个p</p>
+    </div>
+
     <script>
-        //  3   通过元素类名查找在ie8浏览器之前不支持
-        //命名a开头是array,o开头是object
+        var oDiv1 = document.getElementById('div1');
+        // firstChild|firstElementChild
+        console.log(oDiv1.firstChild);
 
-        //  3.1 自己封装一个方法通过类名查找
-
-        function getByClassName(tagName, className, context) {
-            var aLi = context.getElementsByTagName(tagName);
-            var elements=[];
-            for (var i = 0; i < aLi.length; i++){
-                if(aLi[i].className==className){
-                    elements.push(aLi[i]);
-                }
-            }
-            return elements;
-        }
- 
-        var oUl2 = document.getElementById('item2');
-        var aLi3=getByClassName('li','li2',oUl2);       //注意引号
-        for (var i=0;i<aLi3.length;i++){
-            aLi3[i].style.background='red';
-        }
-
-        //  3.2 ie8之后 getElementsByClassName
-        // var aLi=document.getElementsByClassName('item1');
-        // for(var i=0;i<aLi.length;i++){
-        //     aLi[i].style.background='red';
+        // // 封装first方法，在所有的浏览器中都可以返回第一个元素孩子节点
+        // function first(elem){
+        //     elem = elem.firstChild;
+        //     return elem && elem.nodeType != 1 ? next(elem) : elem;
         // }
+
+        // first(oDiv1).style.background = 'red';
     </script>
 </body>
 </html>

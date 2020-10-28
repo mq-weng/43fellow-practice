@@ -32,21 +32,28 @@
         //  3.1 自己封装一个方法通过类名查找
 
         function getByClassName(tagName, className, context) {
-            var aLi = context.getElementsByTagName(tagName);
             var elements = [];
-            for (var i = 0; i < aLi.length; i++) {
-                if (aLi[i].className.indexOf(className) != -1) {    //多类
-                
-                //此处需要正则来处理（如果字符串包含了classname，indexOf不好使）
+            context = context || document; //不传context默认document
+             // 先检测一下当前浏览器是否支持getElementsByClassName，如果支持直接调用，否则调用后面自己的方法
+            if (context.getElementsByClassName) {
+                elements=context.getElementsByClassName(className);
+            } else {
+                var aLi = context.getElementsByTagName(tagName);
+                for (var i = 0; i < aLi.length; i++) {
+                    if (aLi[i].className.indexOf(className) != -1) {    //多类
 
-                    elements.push(aLi[i]);
+                        //此处需要正则来处理（如果字符串包含了classname，indexOf不好使）
+
+                        elements.push(aLi[i]);
+                    }
                 }
             }
+
             return elements;
         }
 
         var oUl2 = document.getElementById('item2');
-        var aLi3 = getByClassName('li', 'li2', oUl2);       //注意引号
+        var aLi3 = getByClassName('li', 'li2',oUl2);       //注意引号
         for (var i = 0; i < aLi3.length; i++) {
             aLi3[i].style.background = 'red';
         }
