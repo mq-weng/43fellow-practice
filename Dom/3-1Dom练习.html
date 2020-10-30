@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #item {
+            width: 300px;
+            height: 500px;
+            background-color: #cccc;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        
+
+        #ul1 {
+            height: 50px;
+            border-bottom: black 1px solid;
+        }
+
+        .li1 {
+            color: white;
+            background-color: black;
+        }
+
+        li {
+            width: 100px;
+            height: 50px;
+            float: left;
+            list-style: none;
+            line-height: 50px;
+            text-align: center;
+        }
+
+       
+        #content div{
+            width: 300px;
+            height: 450px;
+            display: none;
+        }
+
+        
+        /* #content :first-child   ???????*/
+        #content div:first-child {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='item'>
+        <ul id='ul1'>
+            <li class="li1">菜单1</li>
+            <li>菜单2</li>
+            <li>菜单3</li>
+        </ul>
+        <div id="content">
+            <div>11111</div>
+            <div>22222</div>
+            <div>33333</div>
+        </div>
+    </div>
+
+    <script>
+        var oUl = document.getElementById('ul1');
+        var oDiv = document.getElementById('content');
+        var aLi = oUl.getElementsByTagName('li');
+        var aDiv = oDiv.getElementsByTagName('div');
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+                for (var j = 0; j < aLi.length; j++) {
+                    aLi[j].className = '';
+                    aDiv[j].style.display = 'none';
+                }
+                aLi[this.index].className = 'li1';
+                aDiv[this.index].style.display='block';
+            }
+        }
+    </script>
+</body>
+
+</html>

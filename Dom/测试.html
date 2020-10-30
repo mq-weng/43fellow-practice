@@ -1,14 +1,8 @@
 <script>
-    obj1={
-        name:'lili',
-        age:23,
-        fun:function() {
-            document.write('haha!');
-        }
+     function Person(name,age){
+        console.log(this);
+        document.write(name);
     }
-
-    var obj2=Object.create(obj1);
-    obj1.name='fangfang';
-    console.log(obj1);
-    console.log(obj2);
+    var per=new Person();
+    
 </script>
