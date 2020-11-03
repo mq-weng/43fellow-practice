@@ -49,13 +49,21 @@
             // var oLi = document.createElement('li');
             // oLi.innerHTML = 'replace';
             // oUl1.replaceChild(oLi,oUl1.firstElementChild); 
-            //    2
+                 //    2
             // var texNode=document.createTextNode('和20来岁笑起来要命的你');
             // var oLi=oUl1.firstElementChild;                     
             // oLi.replaceChild(texNode,oLi.firstElementChild);    //firstChild会把第一个孩子拿出来（包括文本）
-
             oUl1.firstElementChild.innerHTML='和20来岁笑起来要命的你'
         }
+
+        /* clone 克隆第一个孩子  */
+        oBtn4.onclick=function(){
+            var oLi=oUl1.firstElementChild;
+            var oLi1=oLi.cloneNode(true);
+            oUl1.appendChild(oLi1);
+        }
+
+        
     </script>
 </body>
 
