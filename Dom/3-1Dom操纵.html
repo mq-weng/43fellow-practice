@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom操纵</title>
+    <style>
+        * {
+            list-style: none;
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button id='btn1'>添加</button>
+    <button id='btn2'>删除</button>
+    <button id='btn3'>修改</button>
+    <button id='btn4'>克隆</button>
+    <div>
+        <ul id='ul1'>
+            <li>世界上美好的东西不太多, </li>
+            <li>立秋傍晚河对岸吹来的风,</li>
+        </ul>
+    </div>
+
+    <script>
+        var oBtn1 = document.getElementById('btn1');
+        var oBtn2 = document.getElementById('btn2');
+        var oBtn3 = document.getElementById('btn3');
+        var oBtn4 = document.getElementById('btn4');
+        var oUl1 = document.getElementById('ul1');
+
+        /*appandChild 添加孩子*/
+        oBtn1.onclick = function () {
+            var oLi = document.createElement('li');
+            oLi.innerHTML = '和20来岁笑起来要命的你';
+            oUl1.appendChild(oLi);
+        }
+        /*removeChild 删除最后一个孩子*/
+        oBtn2.onclick = function () {
+            oUl1.removeChild(oUl1.lastElementChild);
+        }
+
+        /*   修改第一个孩子*/
+        oBtn3.onclick=function () {
+                //  1   2 这样比较麻烦了，创建了一个新元素
+            // var oLi = document.createElement('li');
+            // oLi.innerHTML = 'replace';
+            // oUl1.replaceChild(oLi,oUl1.firstElementChild); 
+            //    2
+            // var texNode=document.createTextNode('和20来岁笑起来要命的你');
+            // var oLi=oUl1.firstElementChild;                     
+            // oLi.replaceChild(texNode,oLi.firstElementChild);    //firstChild会把第一个孩子拿出来（包括文本）
+
+            oUl1.firstElementChild.innerHTML='和20来岁笑起来要命的你'
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #container {
+            position: relative;
+            width: 750px;
+            margin: 50px auto;
+        }
+
+        #imge_box img {
+
+            display: none;  /*不要写在imge_box里*/
+        }
+
+        #imge_box :first-child {
+            display: block;
+        }
+
+        #tab {
+            position: absolute;
+            bottom: 30px;
+            right: 50px;
+        }
+
+        #tab li {
+            height: 20px;
+            margin-right: 5px;
+            background-color: rgba(0, 0, 0, 0.6);
+            list-style: none;
+            width: 20px;
+            float: left;
+            /*使父元素没高，塌陷*/
+            text-align: center;
+            line-height: 20px;
+
+        }
+
+        #tab li.active {
+            color: white;
+            background-color: rgba(255, 0, 0, 0.8);
+        }
+
+        .btn {
+            display: block;
+            width: 50px;
+            height: 50px;
+            font-size: 50px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: calc(50% - 25px);
+            color: white;
+        }
+
+        #pre {
+            left: 0;
+        }
+
+        #next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='container'>
+        <div id='imge_box'>
+            <img src="imge/1.jpg" alt="">
+            <img src="imge/2.jpg" alt="">
+            <img src="imge/3.jpg" alt="">
+            <img src="imge/4.jpg" alt="">
+            <img src="imge/5.jpg" alt="">
+        </div>
+        <ul id='tab'>
+            <li class='active'>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <span class='btn' id='pre'>&lt;</span>
+        <span class='btn' id='next'>&gt;</span>
+    </div>
+    <script>
+        var oContainer = document.getElementById('container');
+        var oDiv = document.getElementById('imge_box');
+        var aImg = oDiv.getElementsByTagName('img');
+        var oUl = document.getElementById('tab');
+        var aLi = oUl.getElementsByTagName('li');
+        var oPre = document.getElementById('pre');
+        var oNext = document.getElementById('next');
+        var curIndex = 0;
+
+        var change = function () {
+            for (var j = 0; j < aLi.length; j++) {
+                aLi[j].className = '';
+                aImg[j].style.display = 'none';
+            }
+            aLi[curIndex].className = 'active';
+            aImg[curIndex].style.display = 'block';
+        }
+
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+                curIndex = this.index;
+                change();
+            }
+        }
+
+        oNext.onclick = function () {
+            curIndex++;
+            if (curIndex > 4) {
+                curIndex = 0;
+            }
+            change();
+        }
+
+        oPre.onclick = function () {
+            curIndex--;
+            if (curIndex < 0) {
+                curIndex = 4;
+            }
+            change();
+        }
+        var timer;
+        function go() {
+            timer = setInterval(function () {
+                oNext.onclick();
+            }, 1000);
+        }
+        go();
+        oContainer.onmouseover = function () {
+            clearInterval(timer);
+        }
+        oContainer.onmouseout = function () {
+            go();
+        }
+    </script>
+</body>
+
+</html>

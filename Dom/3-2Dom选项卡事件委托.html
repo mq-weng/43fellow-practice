@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 300px;
+            height: 500px;
+            background-color: #cccc;
+            margin: 50px auto;
+            /*注意这里没逗号*/
+        }
+
+
+
+        #ul1 {
+            height: 50px;
+            border-bottom: black 1px solid;
+        }
+
+        .active {
+            color: white;
+            background-color: black;
+        }
+
+        li {
+            width: 100px;
+            height: 50px;
+            float: left;
+            list-style: none;
+            line-height: 50px;
+            text-align: center;
+        }
+
+
+        #content div {
+            width: 300px;
+            height: 450px;
+            display: none;
+        }
+
+
+        /* #content div:first-child  都行*/
+        #content :first-child {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='container'>
+        <ul id='ul1'>
+            <li class="active">菜单1</li>
+            <li>菜单2</li>
+            <li>菜单3</li>
+        </ul>
+        <div id="content">
+            <div index=0>11111</div>
+            <div index=1>22222</div>
+            <div index=2>33333</div>
+        </div>
+    </div>
+
+    <script>
+        var oUl = document.getElementById('ul1');
+        var oDiv = document.getElementById('content');
+        var aLi = oUl.getElementsByTagName('li');
+        var aDiv = oDiv.getElementsByTagName('div');
+        oUl.onclick = function (e) {
+            var e = e || window.event;
+            var target = e.target || e.srcElement;
+            if (target.tagName == 'LI') {
+                for (var i = 0; i < aLi.length; i++) {
+                    aLi[i].className = '';
+                    aDiv[i].style.display = 'none';
+                }
+                for (var i = 0; i < aLi.length; i++) {
+                    aLi[i].index = i;
+                }
+                console.log(target.index);
+                target.className = 'active';
+                var index = target.getAttribute('index');
+                console.log(index);
+                //????
+                aDiv[target.index].style.display = 'block';
+            }
+
+        }
+    </script>
+</body>
+
+</html>

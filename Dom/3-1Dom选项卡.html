@@ -11,12 +11,11 @@
             padding: 0;
         }
 
-        #item {
+        #container {
             width: 300px;
             height: 500px;
             background-color: #cccc;
-            margin: auto;
-            margin-top: 50px;
+            margin: 50px auto; /*没逗号*/
         }
 
         
@@ -48,15 +47,15 @@
         }
 
         
-        /* #content :first-child   ???????*/
-        #content div:first-child {
+        /* #content div:first-child  都行*/
+        #content :first-child {
             display: block;
         }
     </style>
 </head>
 
 <body>
-    <div id='item'>
+    <div id='container'>
         <ul id='ul1'>
             <li class="li1">菜单1</li>
             <li>菜单2</li>
@@ -81,6 +80,8 @@
                     aLi[j].className = '';
                     aDiv[j].style.display = 'none';
                 }
+
+                //this.className='li1';
                 aLi[this.index].className = 'li1';
                 aDiv[this.index].style.display='block';
             }
