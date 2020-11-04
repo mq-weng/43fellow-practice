@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-2常用事件</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+
+<body>
+    <form id='form1' action="">
+        <input id='input' type="text" value='请输入姓名'>
+        <input type="text" name="" id="input2">
+       
+    </form>
+    <select name="" id="sex">
+        <option value="male">男</option>
+        <option value="female">女</option>
+    </select>
+    <div>
+        <div id='div1'></div>
+    </div>
+
+    <form id='form2' action="4-1绑定事件.html">
+        <input type="text" name='userName'>
+        <button type='submit'>提交</button>
+    </form>
+    <script>
+        /*  focus | blur*/
+        var oInput = document.getElementById('input');
+        oInput.onfocus = function () {
+            oInput.value = '';
+        }
+        oInput.onblur = function () {
+            if (oInput.value == '') {
+                oInput.value = '请输入姓名';
+            }
+        }
+
+        /*  onchange  当内容更改的时候事件触发*/
+        var oSe = document.getElementById('sex');
+        oSe.onchange = function () {
+            console.log(this.value);
+        }
+
+        /*  keydown | keyup   键盘 按下|抬起 时事件触发*/
+        var oIn=document.getElementById('input2');
+        oIn.onkeydown=function(){
+            console.log(this.value);
+        }
+        oIn.onkeyup=function() {
+            console.log(this.value);
+        }
+
+        /*  mouseover | mouseout | mousemove  鼠标 进去|出来|移动 触发事件*/
+        var oDiv=document.getElementById('div1');
+        oDiv.onmousemove=function(){
+            console.log('55555');
+        }
+
+        var oForm=document.getElementById('form2');
+        oForm.onsubmit=function(){
+            console.log('888');
+            return false;//使其不跳转
+        }
+    </script>
+</body>
+
+</html>
