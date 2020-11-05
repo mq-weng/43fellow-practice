@@ -61,9 +61,17 @@
             oDrag.style.display = 'block';
 
         }
-        oSmall.onmousemove = function (e) {
-            
+        oDrag.onmousedown = function (e) {
+            var x = e.clientX;
+            var y = e.clientY;
+            oDrag.onmousemove = function (e) {
+
+                oDrag.style.left = x + e.clientX + (oDrag.style.width) / 2 + 'px';
+                oDrag.style.top = y + e.clientY + (oDrag.style.height) / 2 + 'px';
+                
+            }
         }
+
 
     </script>
 </body>
