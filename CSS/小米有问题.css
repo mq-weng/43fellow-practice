@@ -1,0 +1,256 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    font:14px "HanHei SC", "PingFang SC", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Lantinghei SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+li{
+    list-style: none;
+    font-size: 12px;
+}
+a{
+    text-decoration: none;
+}
+/*nav开始*/
+.nav{
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    line-height: 40px;
+}
+.wrapper{
+    width: 1200px;
+    margin: 0 auto;
+}
+.nav li span{
+        margin:0 5.4px;/*????*/
+}
+
+.subnav{
+    float: left;
+}
+.subnav li{
+    float: left;
+}
+.wrapper a{
+    color: #FFF;
+}
+
+.register {
+    float: right;
+}
+.register li{
+    float: left;
+}
+/*nav开始*/
+
+/*header开始*/
+.header{
+    height: 100px;
+}
+.header img{
+    width: 187px;
+    height: 55px;
+    margin-top: 23px;
+}
+.header-subnav{
+    float: right;
+    height: 40px;
+    margin-top: 36px;
+}
+.header-subnav>li{ /*用子代选择器*/
+    float: left;
+    margin: 0 23px;
+}
+.header-subnav a{
+    color: #212121;
+    font-size: 18px;
+    
+}
+.header-subnav a:hover{
+    color: #F93F2B;
+}
+.header-subnav :last-child {
+    margin-right: 0;
+}
+.header-menu{
+    position: relative;
+    
+}
+.header-submenu{
+    background-color: #fff;
+    border-radius: 2px;
+    width: 150px;
+    height: 102px;
+    position: absolute;
+    top: 40px;
+    left: -55px;
+    z-index: 10;/*重叠了 往z轴写*/
+    border: 1px solid #E5E5E5;
+}
+
+.square{
+    width: 7px;
+    height: 7px;
+    border: 1px solid #E5E5E5;
+    transform: rotate(45deg);
+    position: absolute;
+    top: -5px;
+    left:72px;
+    border-bottom: transparent;
+    border-right: transparent;
+    background-color: #fff;
+}
+.header-submenu>li{
+    height: 40px;
+    line-height: 40px;
+    margin: 10px 0;
+    font-size: 13px;
+}
+.header-menu>a{
+    padding: 60px 0;
+}
+.header-submenu {
+    text-align: center;
+    display: none;
+}
+
+.header-menu:hover .header-submenu{
+    display: block;
+}
+.header-submenu a:hover {
+    display: block;
+    background-color: rgb(182, 167, 167);
+}
+
+
+
+
+
+/*header结束*/
+/*banner 开始*/
+
+.banner{
+    background: url(./images/banner.jpg) center 0;
+    height: 640px;
+    overflow: hidden;
+}
+.banner-box{
+    margin-top: 198px;
+}
+.banner-box h2{
+
+    font-size: 54px;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+}
+.banner-btn{
+    background-color: #F93F2B;
+    width: 260px;
+    height: 60px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 36px;
+}
+.banner-btn a{
+    color: #FFF;
+    margin-left:auto;
+    line-height: 60px;
+    font-size: 24px;
+
+}
+/*banner 结束*/
+
+/*main 开始*/
+.content{
+
+    margin-top: -80px;
+    background-color: #fff;
+    border: #E6E6E6 1px solid;
+    overflow: hidden;
+}
+
+.content>li{
+    margin-left: 30px;
+    margin-top: 30px;
+    float: left;
+}
+.content-img{
+    margin: 0 auto;
+    height: 180px;
+    width: 360px;
+    background-image: url(./images/bg1.png);
+    font-size: 33px;
+    background-size: cover;
+    overflow: hidden;
+}
+.content-img>p{
+    margin: 33px 0 0 30px;
+}
+.content-text{
+   padding-top: 21px;
+   margin-left: 30px;
+}
+.content-text1{
+    font-size:16px;
+    color: #EA5600;
+}
+.content-text2{
+    font-size:16px;
+    color: #666666;
+}
+.content a div:last-child{
+    color: #FD3911;
+    height: 62px;
+    font-size: 16px;
+    line-height: 62px;
+    text-align: center;
+    border-top: #ECECEC 1px solid;
+    margin: 40px 30px 10px 30px;
+}
+.content-img2{
+    background-image: url(./images/bg2.png);
+}  
+
+/*main 结束*/
+/*footer开始*/
+.info-box{
+    height: 209px;
+    margin-top: 109px;
+}
+.footer-left{
+    float: left;
+}
+.info-box a{
+    color: #575757;
+    font-size: 14px;
+}
+.info-box img{
+    width: 46px;
+    height: 46px;
+    float: left;
+}
+
+.footer-content a{
+    color: #575757;
+}
+.text1>li{
+    color: #6d6d6d;
+    float: left;
+    border-right: black 1px solid;
+    width: 73px;
+    text-align: center;
+    margin-left: 8px;
+    
+}
+.content-left2 li{
+    float: left;
+    border-right: black 1px solid;
+}
+.content-right{
+ float: right;
+}
+/*footer结束*/
