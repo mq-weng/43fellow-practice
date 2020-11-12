@@ -1,0 +1,17 @@
+<script>
+
+    //this 永远指向当前函数 的对象
+    function person(name,age){
+        console.log(this);
+        document.write(name);
+    }
+    // person('lisa');
+
+    /*call的作用可以改变函数中的this指针，
+    使this指针指向call的第一个参数*/
+    // person.call({name:'lisa'},'lisa',23);
+
+    // person.apply({name:'wang'},['lisa',23]);   
+
+    person.bind()
+</script>

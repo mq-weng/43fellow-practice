@@ -1,6 +1,19 @@
 <script>
+    function Person(name,age) {
+        console.log(this);
+        this.name=name;
+        this.age=age;
+    }
+    Person.prototype.sayHello=function(){
+        console.log('而后宝宝');
+    }   
+    var p=new Person('lili',23);
 
-
-
+    function Student(name,age){
+        person.call(this,name,age);
+    }
+    
+    Student.prototype=new Person();
+    Student.prototype=Person.prototype;
     
 </script>

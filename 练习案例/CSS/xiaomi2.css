@@ -1,0 +1,79 @@
+body {
+    height: 1000px;
+    font:14px "HanHei SC", "PingFang SC", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Lantinghei SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  /*nav 开始*/
+  .nav {
+    height: 40px;
+    background-color: #333333;
+    font-size: 12px;
+    line-height: 40px;
+  }
+  .nav li {
+    float: left;
+    color: #ffffff;
+  }
+  .nav span {
+    margin-right: 5.3px;
+  }
+  .nav-right :last-child a{
+      margin-right: 0;
+  }
+  .nav a {
+    color: #ffffff;
+    margin-right: 5.3px;
+  }
+  
+  .nav-left {
+    float: left;
+  }
+  .nav-right {
+    float: right;
+  }
+  /*nav 结束*/
+  
+  /*header开始*/
+  .header{
+    height: 100px;
+    font-size: 18px;
+  }
+  .header img{
+    height: 55px;
+    width: 187px;
+    margin-top: 23px;
+  }
+  .header-right{
+    float: right;
+  }
+  .header-right li{
+    float: left;
+    margin-left: 46px;
+    margin-top: 36px;
+  }
+  .header-right a{
+    color: #212121;
+  }
+  .header-right a:hover{
+    color: #e94400;
+  } 
+  /*header结束*/
+  /*banner开始*/
+  .banner-background{
+    height: 640px;
+    background: url(./images/banner.jpg) center 0;
+  }
+  /*banner结束*/
