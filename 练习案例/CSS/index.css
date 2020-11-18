@@ -2,6 +2,9 @@ body {
     height: 1000px;
     font:14px "HanHei SC", "PingFang SC", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Lantinghei SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
   }
+button{
+  font:14px "HanHei SC", "PingFang SC", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Lantinghei SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
   * {
     margin: 0;
     padding: 0;
@@ -68,11 +71,13 @@ body {
     color: #212121;
   }
   .header-right a:hover{
-    color: #e94400;
+    color:#e94400;
   } 
   .header-licai{
     position: relative;
+    padding-bottom: 20px;
   }
+
   .header-pull{
     position: absolute;
     width: 150px;
@@ -80,12 +85,128 @@ body {
     top: 40px;
     left: -53px;
     border: 1px solid#E5E5E5;
+    background-color: #ffffff;
+    display: none;
+    padding: 10px 0;
+    box-sizing: border-box;
   }
+  .header-pull li{
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+  }
+  .header-pull a{
+    font-size: 16px;
+
+  }
+  .header-pull li:hover{
+    background-color: #E5E5E5;
+    
+  }
+  .header-pull li:hover a{
+    color: #e94400;
+    
+  } 
+.square{
+  width: 8px;
+  height: 8px;
+  border: 1px solid #E5E5E5;
+  background-color: #ffffff;
+  position: absolute;
+  transform: rotate(45deg);
+  top: -5px;
+  left: 68px;
+  border-bottom: none;
+  border-right: none;
+}
+.header-licai:hover .header-pull{
+  display: block;
+}
 
   /*header结束*/
   /*banner开始*/
+  .banner{
+    height: 640px;
+  }
   .banner-background{
     height: 640px;
-    background: url(./images/banner.jpg) center 0;
+    background: url(../images/banner.jpg) center 0;
+  }
+  .banner-text{
+    color: #ffffff;
+    margin-top: -446px;
+    text-align: center;
+  }
+  .banner-text h2{
+    font-weight: 300;
+    font-size: 54px;
+  }
+  .banner-text button{
+    cursor: pointer;
+    background-color: #F93F2B;
+    color: #ffffff;
+    width: 260px;
+    height: 60px;
+    font-size: 24px;
+    margin-top: 36px;
   }
   /*banner结束*/
+
+  /*main开始*/
+.main{
+  background-color: #ffffff;
+  margin-top: -80px;
+  padding-top: 30px;
+  border: 1px solid #E6E6E6;
+}
+.main-box{
+  overflow: hidden;
+}
+.main-box>ul>li{
+  float: left;
+  margin-left: 30px;
+}
+
+.main-box p{
+  font-size: 33px;
+  color: #ffffff;
+  padding-top: 44px;
+  padding-left: 30px;
+}
+.main-img{
+  background-image:url(../images/bg1.png) ;
+  width: 360px;
+  height: 180px;
+  background-size: cover;
+}
+.main-img2{
+  width: 360px;
+  height: 180px;
+  background-image: url(../images/bg2.png);
+  background-size: cover;
+}
+.main-text{
+ padding: 10px 30px;
+ font-size: 16px;
+}
+
+.main-text1{
+  color: #EA5600;
+  
+}
+.main-text2{
+  color: #4481C8;
+}
+.main-text li{
+  margin-top: 20px;
+}
+.main-last{
+  color: #FD3911;
+  height: 62px;
+  line-height: 62px;
+  text-align: center;
+  border-top: 1px solid #E6E6E6;
+  margin: 40px 0 10px;
+  font-size: 16px;
+}
+  /*main结束*/

@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>小米二丫</title>
+    <link rel="stylesheet" href="./CSS/modal.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
     <link rel="stylesheet" href="./CSS/index.css" />
   </head>
-
   <body>
+    <button id='body-close'>关闭</button>
     <nav class="nav">
       <div class="wrapper">
         <ul class="nav-left">
@@ -20,8 +22,8 @@
           <li><a href="">小米网移动版</a></li>
         </ul>
         <ul class="nav-right">
-          <li><a href="">登录</a><span>|</span></li>
-          <li><a href="">注册</a></li>
+          <li><a href="" id="navLogin">登录</a><span>|</span></li>
+          <li><a href="" id="navRegister">注册</a></li>
         </ul>
       </div>
     </nav>
@@ -30,12 +32,16 @@
         <img src="./images/logo.png" alt="" />
         <ul class="header-right">
           <li><a href="">首页</a></li>
-          <li class='header-licai'><a href="">理财</a><div class="header-pull">
-            <ul>
-              <li><a href="">定期理财</a></li>
-              <li><a href="">基金投资</a></li>
-            </ul>
-          </div></li>
+          <li class="header-licai">
+            <a href="">理财</a>
+            <div class="header-pull">
+              <ul>
+                <li><a href="">定期理财</a></li>
+                <li><a href="">基金投资</a></li>
+                <div class="square"></div>
+              </ul>
+            </div>
+          </li>
           <li><a href="">贷款</a></li>
           <li><a href="">资产</a></li>
           <li><a href="">社区</a></li>
@@ -43,12 +49,127 @@
         </ul>
       </div>
     </header>
+
     <div class="banner">
       <div class="banner-background"></div>
-      <ul>
-        <li>小米用科技畅想金融</li>
-        <li><a href="">下载小米金融APP</a></li>
-      </ul>
+      <div class="banner-text">
+        <h2>小米用科技畅想金融</h2>
+        <button>下载小米金融APP</button>
+      </div>
     </div>
+
+    <main class="wrapper main">
+      <div class="main-box">
+        <ul>
+          <li>
+            <a href="">
+              <div class="main-img">
+                <p>理财</p>
+                <p>新用户加息12%</p>
+              </div>
+        
+              <ul class="main-text">
+                <li>
+                  <span class='main-text1'>小米官方</span>
+                  <span >|</span>
+                  <span >米家理财的综合平台</span>
+                </li>
+                <li>
+                  <span class='main-text1'>小米官方</span>
+                  <span >|</span>
+                  <span >米家理财的综合平台</span>
+                </li>
+                <li>
+                  <span class='main-text1'>小米官方</span>
+                  <span >|</span>
+                  <span >米家理财的综合平台</span>
+                </li>
+                <div class="main-last">
+                  了解更多>
+                </div>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="">
+                <div class="main-img2">
+                  <p>理财</p>
+                  <p>新用户加息12%</p>
+                </div>
+                <ul class="main-text">
+                  <li>
+                    <span class='main-text2'>小米官方</span>
+                    <span >|</span>
+                    <span >米家理财的综合平台</span>
+                  </li>
+                  <li>
+                    <span class='main-text2'>小米官方</span>
+                    <span >|</span>
+                    <span >米家理财的综合平台</span>
+                  </li>
+                  <li>
+                    <span class='main-text2'>小米官方</span>
+                    <span >|</span>
+                    <span >米家理财的综合平台</span>
+                  </li>
+                  <div class="main-last">
+                    了解更多>
+                  </div>
+                </ul>
+                
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="main-img">
+                <p>理财</p>
+                <p>新用户加息12%</p>
+              </div>
+              <ul class="main-text">
+                <li>
+                  <span class='main-text1'>小米官方</span>
+                  <span >|</span>
+                  <span >米家理财的综合平台</span>
+                </li>
+                <li>
+                  <span class='main-text1'>小米官方</span>
+                  <span >|</span>
+                  <span >米家理财的综合平台</span>
+                </li>
+                <li>
+                  <span class='main-text1'>小米官方</span>
+                  <span >|</span>
+                  <span >米家理财的综合平台</span>
+                </li>
+                <div class="main-last">
+                  了解更多>
+                </div>
+              </ul>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <!-- 弹层组件 -->
+    <div class="modal-box" id="modalBox">
+      <div class="modal-dialog">
+        <div class="modal-header"></div>
+        <button class="X" id='modalx'>[X]</button>
+        <div class="modal-body">
+          <p>
+           用户名 <input type="text" id='username'>
+          </p>
+          <p>
+            密码<input type="password" id='keyword'>
+          </p>
+        </div>
+        <div class="modal-footer">footer</div>
+        <button class="btn submit-btn">确定</button>
+        <button class="btn cancel-btn">取消</button>
+      </div>
+    </div>
+    <script src="./JS/jslib.js"></script>
+    <script src="./JS/modal.js"></script>
+    <script src="./JS/index.js"></script>
   </body>
 </html>
