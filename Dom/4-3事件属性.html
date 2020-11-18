@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件属性</title>
+  </head>
+  <body>
+    <div class="">s</div>
+    <a id="go" href="https://www.w3school.com.cn/tiy/t.asp?f=hdom_event_target"
+      >跳转</a
+    >
+    <script>
+      //clientX||clientY
+
+      //keyCode  监听按键
+      document.onkeydown = function (e) {
+        console.log(e.keyCode);
+      };
+
+      /*e.preventDefault 阻止事件的行为*/
+      var oA = document.getElementById("go");
+      oA.onclick = function (e) {
+        e.preventDefault();
+      };
+    </script>
+  </body>
+</html>
