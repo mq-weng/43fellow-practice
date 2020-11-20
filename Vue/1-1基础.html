@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+  </head>
+  <body>
+      
+    <div id="add">
+        <!-- {{}}可能看见刷新过程 -->
+        <p>
+            {{msg}}
+        </p>
+        <p v-text='msg'></p>
+
+        <!--插入一段html代码-->
+        <p v-html='msg1'></p>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#add",   //绑定数据
+        data:{
+            msg:'hello',
+            msg1:'<a href="">好使不</a>'
+        }
+      });
+    </script>
+  </body>
+</html>
