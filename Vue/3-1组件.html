@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>组件</title>
+    <style>
+      .content {
+        width: 400px;
+        border: olivedrab 1px solid;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+        background-color: palegoldenrod;
+      }
+      .content main {
+        border-top: olivedrab 1px solid;
+      }
+      .content header span {
+        float: right;
+      }
+
+      .content footer {
+        border-top: olivedrab 1px solid;
+        padding-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <template id="login">
+      <div class="content">
+        <header>
+          {{title}}
+          <span @click="close">X</span>
+        </header>
+        <main>
+          <slot></slot>
+        </main>
+        <footer>
+          <button @click="close">{{title}}</button>
+        </footer>
+      </div>
+    </template>
+
+    <template id="regester">
+      <div class="content">
+        <header>
+          {{title}}
+          <span @click="close">X</span>
+        </header>
+        <main>
+          <slot></slot>
+        </main>
+        <footer>
+          <button @click="close">{{title}}</button>
+        </footer>
+      </div>
+    </template>
+
+    <div id="app">
+      <button @click="log()">登录</button>
+      <button @click="reg()">注册</button>
+      <login title="登录" v-show="isLogin" @close="hide">
+        <p>用户名<input type="text" name="" id="" /></p>
+        <p>密码<input type="password" name="" id="" /></p>
+      </login>
+      <regester title="注册" v-show='isReges' @close='hide'>
+        <p>用户名<input type="text" name="" id="" /></p>
+        <p>密码<input type="password" name="" id="" /></p>
+        <p>确认密码<input type="password" name="" id="" /></p>
+      </regester>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          isLogin: false,
+          isReges: false,
+        },
+        methods: {
+          reg() {
+            this.isLogin = false;
+            this.isReges = true;
+          },
+          log() {
+            this.isLogin = true;
+            this.isReges = false;
+          },
+          hide() {
+            this.isLogin = false;
+            this.isReges = false;
+          },
+        },
+        components: {
+          'login': {
+            template: "#login",
+            props: ["title"],
+            methods: {
+              close() {
+                this.$emit("close");
+              },
+            },
+          },
+          'regester': {
+            template: "#regester",
+            props: ["title"],
+            methods: {
+              close(){
+                this.$emit('close');
+              }
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

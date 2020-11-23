@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tolist</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+       
+        .active{
+            background-color: brown;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="msg" />
+      <button @click="add()">添加</button>
+      <ul>
+        <li v-for="(item, index) in list" :key="index">{{item.name}}</li>
+      </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          list: [
+            {
+              name: 111,
+              isActive:false
+            },
+          ],
+          msg: "",
+        },
+        methods: {
+          add() {
+              this.list.push({
+                name:this.msg,
+                isActive:false
+              })
+              this.msg=''
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
