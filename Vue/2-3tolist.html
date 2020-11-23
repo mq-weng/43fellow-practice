@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tolist</title>
+    <!-- 绑定两个事件要用分号分开 -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .active{
+            color: aqua;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="msg" @keyup="search()" />    <!-- @mouseout='reback()' -->
+      <button @click="add();reback()" >添加</button>
+      <ul>
+        <li v-for="(item, index) in list" :key="index" :class='{active:item.isActive}' @click="change(item)" v-show="item.isShow">{{item.name}}
+          <button @click.stop="delet(index)">删除</button>
+        </li>
+      </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          list: [
+            {
+              name: '111',
+              isActive:false,
+              isShow:true
+            },
+            {
+              name: '222',
+              isActive:false,
+              isShow:true
+            },
+          ],
+          msg: "",
+        },
+        methods: {
+          change(obj){
+            obj.isActive=!obj.isActive;
+          },
+          delet(index){
+            this.list.splice(index,1)
+          },
+          add() {
+              this.list.push({
+                name:this.msg,
+                isActive:false,
+                isShow:true
+              })
+              this.msg=''
+          },
+          search(){
+            for(p in this.list){
+              this.list[p].isShow=(this.list[p]).name.includes(this.msg)?true:false
+            }
+          },
+          reback(){
+            for(p in this.list){
+              this.list[p].isShow=true
+            }
+          }
+
+        },
+      });
+    </script>
+  </body>
+</html>
