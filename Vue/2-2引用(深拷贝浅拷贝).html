@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>深拷贝浅拷贝</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <ul>
+      <li>哈哈哈</li>
+      <li>heihei</li>
+      <li>嘿嘿</li>
+    </ul>
+    <script>
+      var lisi1 = {
+        name: "lisi",
+        age: 20,
+        brother: {
+          name: "lisan",
+          age: 25,
+          sister: {},
+        },
+      };
+      //浅拷贝，传址
+      var lis3 = lisi1;
+      //浅拷贝，复制
+      var lisi2 = { ...lisi1 };
+      lisi2.brother.name = "lisan2";
+      console.log(lisi1);
+      console.log(lisi2);
+
+      //...把类数组变成数组
+      var aLi = document.getElementsByTagName("li");
+      var aLi1 = [...aLi];
+      aLi1.push("20");
+      for (var i = 0; i < aLi1.length; i++) {
+        console.log(aLi1[i]);
+      }
+
+      // 深克隆
+      function clone(obj) {
+        var o = obj.constructor == Array ? [] : {};
+        for (var p in obj) {
+          if (typeof obj[p] === "object") {
+            o[p] = clone(obj[p]);
+          } else {
+            o[p] = obj[p];
+          }
+        }
+        return o;
+      }
+    </script>
+  </body>
 </html>

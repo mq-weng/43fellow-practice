@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>$set</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(item, index) in list" :key="index">{{item}}</li>
+        {{add()}}
+      </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          list: [{ name: "哈哈" }, 22],
+        },
+        methods: {
+          add() {
+            //这么写视图层不会更新
+            this.list[2] = "hhhhhhh";
+
+            //$set不仅当前视图更新了，前面的也更上去了
+            this.$set(
+              this.list,
+              3,
+              "加上了"
+            ); /* 
+            1、要修改的变量
+            2、对应的索引
+            3、新改的值
+          */
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
