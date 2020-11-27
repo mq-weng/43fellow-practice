@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest</title>
+</head>
+<body>
+    
+    <script>
+         function fn1(x, y) {
+            // 获取所有的实参，尽量不要用
+            console.log(arguments); //[1,2,3,4,5]
+            console.log(arguments.callee)
+        }   
+        fn1(1, 2, 3, 4, 5);   
+        //重要的是...(rest可以改名)
+        function fn2(x,...rest){
+            console.log(rest)//rest是数组
+        }
+        fn2('a','b','c',123)
+        let [a, b, c, d, e] = [1, 2, 3, [4, 5]];
+        console.log(a, b, c, d, e); //1，2，3, [4,5] ,undeined
+    </script>
+</body>
+</html>

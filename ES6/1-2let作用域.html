@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>let</title>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+      </ul>
+    </div>
+    <script>
+      /*
+            作用域：
+                1、全局作用域
+                2、局部作用域（函数作用域）
+                3、块级作用域：es6中，一个{}就是一个块级作用域，let 声明的变量只能在声明他的{}中获取到
+        */
+
+      /*块级作用域：es6中，一个{}就是一个块级作用域，let 声明的变量只能在声明他的{}中获取到*/
+      if (true) {
+        let a = 0;
+      }
+      //   console.log(a); //a is not defined
+      var b = 20;
+
+      // function fn2() {
+      //     console.log(b); //undefined :局部作用域内的变量提升
+      //     var b = 200;
+      // }
+      // fn2()
+      function fn2() {
+        console.log(b); //报错 :Cannot access 'b' before initialization
+        let b = 200;
+      }
+      fn2();
+
+
+      
+      //   var aLi = document.getElementsByTagName("li");
+      //   for (var i = 0; i < aLi.length; i++) {
+      //     aLi[i].index = i;
+      //     aLi[i].onclick = function () {
+      //       console.log(this.index + 1);
+      //     };
+      //   }
+      //   console.log(i); //onclick还没有执行i一瞬间就缓存完了
+
+      // 闭包：外部函数中声明内部函数，在内部函数中引用了外部函数中
+      //定义的局部变量，此时外部函数执行完后变量会继续留在内存当中，
+      //不会被释放
+      //   var aLi1 = document.getElementsByTagName("li");
+      //   for (var i = 0; i < aLi1.length; i++) {
+      //     (function (index) {
+      //       aLi1[i].onclick = function () {
+      //         console.log(index);
+      //       };
+      //     })(i);
+      //   }
+
+      var aLi = document.getElementsByTagName("li");
+      for (let i = 0; i < aLi.length; i++) {
+        aLi[i].onclick = function () {
+          console.log(i);
+        };
+      }
+    </script>
+  </body>
+</html>

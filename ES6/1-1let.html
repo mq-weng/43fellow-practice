@@ -6,13 +6,34 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <ul>
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+        </ul>
+    </div>
     <script>
+        /*  1 let 不能重复声明*/
+        var a=3;
+        var a=0;
+        console.log(a);
+
+        let b=1;
+        let b=9;
+        console.log(b)//Identifier 'b' has already been declared
 
         /* 2 let 不存在变量提升*/
         console.log(a) //undefind
         var a=0;
         console.log(b)//Cannot access 'b' before initialization
         let b=2;
+
+        var str1;
+        console.log(str1);
+        str1 = 'study';
+        console.log(str1); //Cannot access 'str1' before initialization
+        let str1 = 'study';
     </script>
 
 </body>
