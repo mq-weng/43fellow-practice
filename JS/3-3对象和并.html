@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象合并</title>
+</head>
+<body>
+    <script>
+        var obj={
+            name:'lili',
+            age:44,
+            brother:{
+                name:'gege'
+            }
+        }
+        var target={
+            name:'huahua',
+            brother:{
+                name:'didi',
+                age:20
+            }
+        }
+        function setting(target,obj){
+            for(var p in obj){
+                if(typeof obj[p]=='Object'){
+                    // if(obj[p].constructor=='Array'){
+                    //     target[p]=[]
+                    //     setting(target[p],obj[p])
+                    // }
+                    // else{
+                    //     target[p]={}
+                    //     setting(target[p],obj[p])
+                    // }
+                   setting(target[p]=(obj[p].constructor=='Array'?[]:{}),obj[p] ) 
+                }
+                else{
+                    target[p]=obj[p];
+                }
+
+
+            }
+            return target;
+        }
+        console.log(setting(target,obj));
+    </script>
+</body>
+</html>

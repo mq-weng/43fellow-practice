@@ -3,9 +3,9 @@
     var obj = new Object();
     obj.name = 'xiaozhang';
     obj.brother = {
-        name: 'lisi',
+        name: 'lisi',/*基本数据类型传值，在栈里*/
         age: 33,
-        wife: {
+        wife: {    /*引用类型传址，地址在栈里，数据在堆里*/
             name: 'fangfang',
             age: 30,
             sayHello:function(){
@@ -18,7 +18,7 @@
         }
     }
     function printObject(obj) {
-        for (prop in obj) {
+        for (prop in obj) {         /*遍历对象里面的元素*/
             if (typeof obj[prop] == 'object') {
                 printObject(obj[prop]);
             }

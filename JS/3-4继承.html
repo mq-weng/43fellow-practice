@@ -10,10 +10,10 @@
     var p=new Person('lili',23);
 
     function Student(name,age){
-        person.call(this,name,age);
+        Person.call(this,name,age);
     }
     
     Student.prototype=new Person();
-    Student.prototype=Person.prototype;
+    Student.prototype.constructor=Person.constructor;//????
     
 </script>
