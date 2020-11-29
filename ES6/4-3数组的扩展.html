@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组的扩展</title>
+  </head>
+  <body>
+    <ul>
+      <li>sss</li>
+      <li>fff</li>
+      <li>212151</li>
+    </ul>
+    <script>
+      let aLi = document.getElementsByTagName("li");
+      /*  1.创建数组两种方式   */
+      let arr1 = new Array(1, 2, 3); //当只有一个参数时传的值为数组长度
+      let arr2 = [1, 2, 3];
+      console.log(arr1);
+
+      /*  2   将一组值转化为数组  */
+      console.log(Array.of(1, 2, 3, 4));
+
+      /*  3 将类数组变为数组  */
+      arr3 = [...aLi];
+      arr4 = Array.from(aLi);
+      arr4.push(66);
+      arr3.push(555);
+      console.log(arr4, arr3);
+      console.clear();
+      //数组覆盖
+      console.log([0, 1, 2, 2].copyWithin(2, 0, 2));
+
+      /*  4数组遍历   */
+      for (p of arr2) {
+        console.log(p);
+      }
+      console.clear();
+      for (let key of arr2.keys()) {
+        console.log(key);
+      }
+      for (let value of arr2.values()) {
+        console.log(value);
+      }
+      for (let entry of arr2.entries()) {
+        console.log(entry);
+      }
+      console.clear();
+      //利用回调函数
+      //1 foreach 只是循环数组，不会改变原数组的值（但对象比较特殊）
+      arr2.forEach((value, index, arr) => {
+        value += 1;
+      });
+      console.log(arr2);
+
+      let list1 = [
+        {
+          name: "lisi",
+          age: 11,
+        },
+        {
+          name: "wangwu",
+          age: 22,
+        },
+        {
+          name: "lineng",
+          age: 1331,
+        },
+      ];
+      list1.forEach((value, index, arr) => {
+        value.age++;
+      });
+      console.log(list1);
+      //2.map过滤不符合条件就undefind
+      let arr6 = list1.map((value, index, arr) => {
+        if (value.age > 22) {
+          return value.age;
+        }
+      });
+      console.log(arr6)
+      //filter过滤，有返回值
+      let a = arr2.filter((value, index, arr) => {
+        return value > 2;
+      });
+      console.log(a);
+    </script>
+  </body>
+</html>

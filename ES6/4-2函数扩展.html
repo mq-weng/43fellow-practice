@@ -1,18 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>函数扩展</title>
-</head>
-<body>
-    
+  </head>
+  <body>
+    <ul>
+      <li></li>
+    </ul>
     <script>
-        /*  1函数的默认参数 */
-        function fn1(a,b,c=80){
-            console.log(c)
+      /*  1函数的默认参数 */
+      function fn1(a, b, c = 80, d) {
+        console.log(c);
+      }
+      fn1(1, 2, 3, 4);
+      //...rest默认参数
+
+      /*  2.length方法(length属性的返回值，等于函数的参数个数减去指定了默认值的参数个数)   */
+      function fn2(a, b, ...rest) {}
+      fn2(1, 2, 3, 4, 5, 6, 5);
+      console.log(fn1.length); //2,默认值之后的参数不计
+      console.log(fn2.length); //2
+      console.log(fn2.name); //fn2
+
+      /*  3.箭头函数   */
+      let fn3 = () => {
+        console.log("hahah");
+      };
+      fn3();
+      console.clear();
+
+      /*  4.this指向*/
+      //改变this指向的几种方式
+      /* 
+            改变 this 的指向有几种方式？
+                1、call   (this,arg1,arg2,arg3)
+                2、apply  (this,[arg1,arg2,arg3])
+                3、bind  (this,arg1,arg2,arg3)   需要手动调用
+        */
+      var oLi = document.getElementsByTagName("li")[0];
+      oLi.onclick = function () {
+        console.log(this);//oLi
+        setTimeout(
+          function () {
+            let fn5 = () => {
+              console.log(this);//oLi,this 指向的是定义时所在的对象 
+            };
+            fn5()
+            console.log(this);//oLi
+          }.bind(this),
+          3000
+        ); //这里用其他两个会使setTimeOut定时失效
+      };
+      /* 
+            普通函数的 this 指向问题（ 谁调用的这个方法或谁调用了事件，this 指向的就是谁 ）
+                1、事件处理函数中 this => 绑定事件的那个 dom元素
+                2、在定时器中  this => window
+                3、在自定义函数中  this => window
+                4、在自定义对象中 this => 该对象
+                5、在类中  this =>  new 出来的实例化对象
+        */
+      /*
+                 箭头函数的 this 指向：
+                1、this 指向的是定义时所在的对象，而不是使用时所在的对象
+                2、箭头函数没有 this， 他的父作用域中的 this 是谁，那箭头函数中的 this 就是谁
+                3、如果箭头函数被非箭头函数包含，那它的 this 指向的就是他最近那层非箭头函数中的 this ，否则就是 window   
+        */
+      console.clear()
+      let obj2 = {
+            name: 'obj2',
+            study: () => {
+                console.log(this); //window
+                setTimeout(() => {
+                    let obj3 = {
+                        name: 'obj3',
+                        code: () => {
+                            console.log(this); // window
+                        }
+                    }
+                    obj3.code();
+                }, 1000);
+            }
         }
-        fn1(1,2)
+        obj2.study();
     </script>
-</body>
+  </body>
 </html>
