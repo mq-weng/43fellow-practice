@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象扩展</title>
+  </head>
+  <body>
+    <script>
+      /*  1.简写   */
+      let name = "lisi";
+      let age = 89;
+      let obj1 = {
+        name: name,
+        age: age,
+        eat: function () {
+          console.log("eat");
+        },
+      };
+      //简写为
+      let obj2 = {
+        name,
+        age,
+      };
+      console.log(obj2);
+
+      /*  2.属性表达式 []能进行取值和运算   */
+      let xx = "sex";
+      let obj3 = {
+        [xx + 222]: "nv",
+      };
+      console.log(obj3);
+
+      /*    3.oBject.is(),基本与===相同  */
+      console.log(NaN === NaN); //false
+      console.log(Object.is(NaN, NaN)); //true
+
+      console.log(+0 === -0); //true
+      console.log(Object.is(+0, -0)); //false
+
+      /*    4.对象的遍历 for...in*/
+
+      /*    5.in判断存在不    */
+      console.clear()
+      console.log('name' in obj1)//true
+    </script>
+  </body>
+</html>

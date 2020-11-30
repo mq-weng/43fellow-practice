@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map</title>
+  </head>
+  <body>
+    <script>
+      /*  1.map,只能用字符串当作键*/
+      let m1 = new Map([["age", "200"]]);
+      m1.set("name", "lisi");
+      console.log(m1); //"name" => "lisi"
+      console.log(m1.size); //1
+      console.log(m1.get("name")); //lisi
+      console.log(m1.delete("name")); //true
+      m1.clear();
+      /*  2.WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名。  */
+      let w1 = new WeakMap();
+      w1.set({ name: "liuneng", age: 99 }, "dsd");
+      console.log(w1);
+      // size、forEach、clear 方法都不存在
+    </script>
+  </body>
+</html>
