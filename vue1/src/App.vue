@@ -9,12 +9,14 @@
 			<!-- <router-link :to="{path:'/user',query:{name:'lisi',age:20}}">用户详情</router-link> -->
 			<!-- name传参，地址栏看不见参数 ,一刷新页面，参数丢失-->
 			<router-link :to="{name:'User',params:{name:'wangwu',age:30}}">用户详情</router-link>
-			
+			<router-link to="/index">乘法</router-link>
 		</div>
 		<router-view />
 	</div>
 </template>
-
+<script>
+	
+</script>
 <style lang="scss">
 	#app {
 		font-family: Avenir, Helvetica, Arial, sans-serif;
