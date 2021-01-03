@@ -1,0 +1,18 @@
+@import 'index1.scss';//引入scss文件
+$color: #111111;
+#contain{/*注释也会*/
+	background-color: $color;
+	margin: 20px;
+	.box{//嵌套
+		background-color: wheat;
+		a{
+			padding:{//属性也能嵌套（注意冒号）
+				top:20px;
+				bottom: 20px;
+			};
+			&:hover{/*&是引用父选择器*/
+				background-color: hotpink;
+			}
+		}
+	}
+}

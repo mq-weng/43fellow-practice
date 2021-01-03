@@ -3,7 +3,7 @@
 		<div id="nav">
 			<router-link to="/">Home</router-link> |
 			<router-link to="/about">About</router-link>|
-			<!-- url +params传参 -->
+			<!-- url +params传参 /course/参数-->
 			<router-link to="/course">Course</router-link>|
 			<!-- query传参 -->
 			<!-- <router-link :to="{path:'/user',query:{name:'lisi',age:20}}">用户详情</router-link> -->

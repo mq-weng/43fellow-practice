@@ -1,0 +1,9 @@
+@charset "UTF-8";
+* { margin: 0; padding: 0; }
+
+#contain { /*注释也会*/ background-color: #111111; margin: 20px; }
+#contain .box { background-color: wheat; }
+#contain .box a { padding-top: 20px; padding-bottom: 20px; }
+#contain .box a:hover { /*&是引用父选择器*/ background-color: hotpink; }
+
+/*# sourceMappingURL=index.css.map */
