@@ -1,9 +1,30 @@
 @charset "UTF-8";
-* { margin: 0; padding: 0; }
+* {
+  margin: 0;
+  padding: 0; }
 
-#contain { /*注释也会*/ background-color: #111111; margin: 20px; }
-#contain .box { background-color: wheat; }
-#contain .box a { padding-top: 20px; padding-bottom: 20px; }
-#contain .box a:hover { /*&是引用父选择器*/ background-color: hotpink; }
+/*混合宏*/
+#contain {
+  /*注释也会*/
+  background-color: #111111;
+  margin: 20px; }
+  #contain .box {
+    background-color: wheat; }
+    #contain .box a {
+      padding-top: 20px;
+      padding-bottom: 20px; }
+      #contain .box a:hover {
+        /*&是引用父选择器*/
+        background-color: hotpink; }
+    #contain .box .box1 {
+      width: 200px;
+      height: 30px; }
+    #contain .box .box2 {
+      width: 40px;
+      height: 40px; }
+    #contain .box .box3, #contain .box .box4 {
+      background-color: red; }
+    #contain .box .box4 {
+      border: 1px; }
 
 /*# sourceMappingURL=index.css.map */

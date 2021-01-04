@@ -1,5 +1,10 @@
 @import 'index1.scss';//引入scss文件
 $color: #111111;
+/*混合宏*/
+@mixin size($w:200px,$h:40px){//设置默认值
+	width:$w;
+	height: $h;
+}
 #contain{/*注释也会*/
 	background-color: $color;
 	margin: 20px;
@@ -14,5 +19,18 @@ $color: #111111;
 				background-color: hotpink;
 			}
 		}
-	}
-}
+	 .box1{
+		 @include size(200px,30px);
+	 }
+	 .box2{
+		 @include  size($w:40px);//$h用默认值
+	 }
+	 .box3{
+		 background-color: red;
+	 }
+	 .box4{
+		 @extend .box3;//继承.box3
+		 border: 1px;
+	 }
+	 }
+ }
