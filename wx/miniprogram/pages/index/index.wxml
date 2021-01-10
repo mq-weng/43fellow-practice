@@ -1,0 +1,34 @@
+{{msg}}
+<!-- for 循环 -->
+<view wx:for="{{arr}}" wx:key='index'>
+  {{index}}--{{item}}
+</view>
+<view wx:for="{{arr}}" wx:key="index" wx:for-index="key" wx:for-item="i">
+  {{key}}-{{i}}
+</view>
+<!-- if else条件语句 -->
+<view wx:if="{{flag==0}}">
+  <text>flag=0</text>
+</view>
+<view wx:else>
+  <text>flag!0</text>
+</view>
+<!-- block 块（像vue的template） -->
+<block wx:for="{{arr}}" wx:key="index">
+  <view>{{item}}</view>
+  <view>{{index}}</view>
+</block>
+
+<!-- template 模版-->
+<template name="app" >
+  <view>
+    <text>hfjg</text>
+  </view>
+  <view wx:for="{{arrObj}}" wx:key="index">
+    <text>{{item.name}}</text>
+  </view>
+</template>
+<template is="app" data="{{arrObj}}"/>
+  <!-- 引入用 import，解析用 ... -->
+ <import src="./temp1.wxml"></import>
+  <template wx:for="{{arrObj}}" is="content" data="{{...item}}" wx:key="index"></template>
