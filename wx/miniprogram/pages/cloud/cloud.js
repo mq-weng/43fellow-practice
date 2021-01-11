@@ -1,24 +1,13 @@
-// miniprogram/pages/index/index.js
+// miniprogram/pages/cloud/cloud.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    msg: '桃花',
-    arr:['a','b','c','d'],
-    flag:1,
-    arrObj:[
-      {name:'lisi',age:20},
-      {name:'zhang',age:22},
-      {name:'huahu',age:30}
-    ]
+
   },
-  goOne(){
-    wx.navigateTo({
-      url: '../one/one?id=111',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -58,18 +47,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    console.log("下拉刷新了");
-    setTimeout(
-        function () {
-          wx.stopPullDownRefresh()
-      },100);
-      
-    },
+
+  },
+
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-      console.log("触底了");
+
   },
 
   /**

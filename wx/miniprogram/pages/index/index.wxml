@@ -32,3 +32,5 @@
   <!-- 引入用 import，解析用 ... -->
  <import src="./temp1.wxml"></import>
   <template wx:for="{{arrObj}}" is="content" data="{{...item}}" wx:key="index"></template>
+  <!-- 跳转页面 -->
+  <button bindtap="goOne" type="primary">去页面一</button>

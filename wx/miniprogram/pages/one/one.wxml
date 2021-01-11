@@ -1,0 +1,5 @@
+
+<view>{{num}}</view>
+<button bindtap="add1" type="primary">加一</button>
+<!-- <button data-step="{{5}}" bindtap="add5" type="primary">加五</button> -->
+<button data-step="5" bindtap="add5" type="primary">加五</button>
