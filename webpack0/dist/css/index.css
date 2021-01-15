@@ -1,0 +1,13 @@
+body {
+  height: 500px;
+  background-color: aqua;
+  background-image: url(http://localhost:9000/images/fe86b894f7f96f6a7474293bea2e10d4.png);
+  -webkit-transform: rotate(45deg,56,5);
+  transform: rotate(45deg,56,5);
+}
+
+.content {
+  width: 200px;
+  height: 200px;
+  background-color: black;
+}

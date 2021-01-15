@@ -1,0 +1,9 @@
+body{
+    height: 500px;
+    background-color: aqua;
+    background-image: url(./画板\ 7.png);
+    transform: rotate(45deg,56,5);
+}
+.ckad{
+    background-attachment: fixed;
+}
