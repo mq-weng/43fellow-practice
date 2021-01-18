@@ -16,13 +16,13 @@ app.use(bodyParser());
 //配置模板引擎
 app.use(views(path.join(__dirname, "/views"), {
         extensions: "ejs",
-    }
-    ));
+    })
+    );
 
 //配置静态资源目录
 app.use(static(path.join(__dirname, "./public")))
 
 app.use(router.routes()).use(router.allowedMethods());
 
-app.listen(3000);
+app.listen(3001);
 console.log("start-quick is starting at port 3000");
