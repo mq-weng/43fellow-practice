@@ -11,3 +11,35 @@ const fs = require('fs');
 // 2. "/index"
 // 3. "/todo"
 // 4. "/xxx"
+// render: 渲染函数，一般用来加载网页
+function render(path) {
+    let fileName = './view'+ path + '.html';
+    return new Promise((resolve,reject) => {
+        fs.readFile(fileName,'utf-8',(err,data) =>{
+            if(err){
+                reject(err);
+            }else{
+                resolve(data);
+            }
+        })
+    })
+}
+let data = "";
+app.use(async (ctx) => {
+    let url = ctx.url;
+    switch(url){
+        case '/':
+        case '/index':
+            data = await render('/index'); // render('/')|render('/index')|render('/todo')|render('/xxx');
+            break;
+        case '/todo':
+            data = await render('/todo');
+            break;
+        default:
+            data = await render('/404');
+            break;
+    }
+    ctx.body = data;
+});
+app.listen(3000);
+console.log("[demo] start-quick is starting at port 3000");
