@@ -29,11 +29,12 @@ export default {
           password: this.password,
         })
         .then((res) => {
-          if (res.data.state == "success") {
-            //获取token(res.data.ato)
+          let {token,state} = res.data;
+          if (state == "success") {
+            //获取token
             //存储token到vuex
-            this.$store.dispatch('setToken',res.data.ato)
-            // console.log(res.data.ato);
+            this.$store.dispatch('setToken',token)
+            // console.log(res.data.authorization);
             this.$router.push('/');
           } else {
             console.log("登录失败");

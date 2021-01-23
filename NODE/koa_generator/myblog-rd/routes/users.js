@@ -1,20 +1,23 @@
 const router = require('koa-router')()
-var jwt = require('jsonwebtoken');
-
+const creatAuth = require('../auth')
 router.prefix('/user')
 
 router.post('/login', async (ctx, next) => {
   let {username,password} = ctx.request.body;
   if(username == 'lisi'&& password == '123456'){
-    let secret = 'fgbb**';
-    let sec = { 
+    let playload = { 
       username,
-      userId: Math.random, 
+      userId: Math.random(), 
     }
-    let token = jwt.sign(sec, secret,{ expiresIn: 10});//token时限
-    ctx.body = {state:"success", ato:token}
+    //生成token
+    // let token = jwt.sign(playload, secretKey,{ expiresIn: 20});//token时限
+    let token = creatAuth.creatAuthration(playload);
+    console.log(token);
+    ctx.body = {state:"success", token}
   }else{
-    ctx.body = 'faile';
+    ctx.body ={
+      state: 'fail',
+    } 
   }
 })
 

@@ -3,7 +3,11 @@
     <div class="blog-list">
       <div class="blog" v-for="item in blogList" :key="item.blogId">
         <h3 class="blog-title">
-          <a href="/blog/detail/">{{ item.blogTitle }}</a>
+          <!-- <a href="/blog/detail/">{{ item.blogTitle }}</a> -->
+          <router-link
+            :to="{ path: '/blogDetail', query: { blogId: item.blogId } }"
+            >{{ item.blogTitle }}</router-link
+          >
         </h3>
         <p class="blog-content">{{ item.blogContent }}</p>
         <span class="post-time">{{ item.postTime }}</span>
@@ -25,13 +29,23 @@ export default {
     getData() {
       this.axios({
         url: "http://localhost:3000/blog/list",
-        headers: {//注意是headers(不是header)
-           "Authorization": localStorage.getItem("mytoken")
-            }
+        headers: {
+          //注意是headers(不是header)
+          Authorization: localStorage.getItem("mytoken"),
+        },
       }).then((res) => {
-        let { blogs } = res.data; //list比较特殊？？？
-        this.blogList = blogs;
+        console.log(res.data.state)
+        if (res.data.state == "success") {
+          let { blogs } = res.data; //list比较特殊？？？
+          this.blogList = blogs;
+        } else {
+          this.$router.push('/login');
+          console.log(localStorage.getItem("mytoken"));
+         }
       });
+      /*.catch((error) => {
+        console.log(error);//status状态码
+      })*/
     },
   },
 };

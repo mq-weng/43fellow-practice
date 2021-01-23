@@ -12,10 +12,10 @@ export default new Vuex.Store({
   actions: {
     setToken(state,token){
       state.token = token;
-      // console.log(token);
+      console.log(token);
 
       //放到localStorage中
-      localStorage.setItem('mytoken',token)
+      localStorage.setItem('mytoken',token);
     }
   },
   modules: {
