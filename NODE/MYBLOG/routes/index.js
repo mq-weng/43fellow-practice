@@ -1,38 +1,28 @@
 const Router = require('@koa/router');
-
+const blogController = require('../controllers/blog_control');
+const userController = require('../controllers/user_control');
 const router = new Router();
 
-
-
-
-
-
 //首页路由
-router.get("/", async (ctx) => {
-  //查询所有文章数据
-  let results = await getBlogData()
-  await ctx.render("index.ejs", {
-    blogs: results
-  });
-})
+router.get("/",blogController.welcom );
 
 //登录路由
 router.get("/login", async (ctx) => {
-  await ctx.render("login.ejs");
+  await ctx.render("login.ejs");//配的ejs不好使吗？？？？
 });
+//登录提交表单
+router.post("/login", userController.login);
 
-router.post("/login", async (ctx) => {
-  let {username,password} = ctx.request.body;
-  let results = await getUserData(username,password);
-  // console.log(results)
-  if(results.length>0){
-    await ctx.redirect("/");//重定向
-  }else{
-    await ctx.render("error.ejs",{
-      message: "登录失败，用户名或密码不正确",
-    })
-  }
+//注册路由
+router.get("/regist",async (ctx) => {
+  await ctx.render("regist");
 })
 
+//注册提交表单
+router.post("/regist", userController.regist);
 
+//文章详细信息
+router.get("/blog-detail/:blog_id",blogController.blogDetail);
+
+router.get("/checkUser",userController.check)
 module.exports = router;
