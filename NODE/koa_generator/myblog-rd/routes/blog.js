@@ -13,7 +13,7 @@ router.get("/list",verifyAuth.verifyAuthration, async (ctx) => {
         },
         ];
         ctx.body = {
-            state: "success",
+            //state: "success",
             blogs,
         }
     });

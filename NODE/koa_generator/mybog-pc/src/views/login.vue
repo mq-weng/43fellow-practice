@@ -24,7 +24,7 @@ export default {
   methods: {
     doLogin() {
       this.$http
-        .post("http://localhost:3000/user/login", {
+        .post("/user/login", {
           username: this.username,
           password: this.password,
         })
@@ -33,13 +33,15 @@ export default {
           if (state == "success") {
             //获取token
             //存储token到vuex
-            this.$store.dispatch('setToken',token)
-            // console.log(res.data.authorization);
+            this.$store.dispatch('setToken',token);
             this.$router.push('/');
           } else {
             console.log("登录失败");
           }
-        });
+        })
+        /*.catch((error) => {
+          console.log(error);
+        })*/
     },
   },
 };

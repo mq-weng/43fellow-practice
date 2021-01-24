@@ -13,9 +13,13 @@ export default new Vuex.Store({
     setToken(state,token){
       state.token = token;
       console.log(token);
-
       //放到localStorage中
       localStorage.setItem('mytoken',token);
+    },
+    logOut(state){
+      state.token = null;
+      localStorage.removeItem('mytoken');
+      console.log('logOut')
     }
   },
   modules: {

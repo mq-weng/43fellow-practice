@@ -27,23 +27,21 @@ export default {
   },
   methods: {
     getData() {
-      this.axios({
-        url: "http://localhost:3000/blog/list",
-        headers: {
-          //注意是headers(不是header)
-          Authorization: localStorage.getItem("mytoken"),
-        },
+      this.$http({
+        url: "/blog/list",
       }).then((res) => {
-        console.log(res.data.state)
-        if (res.data.state == "success") {
+        // console.log(res.data.state)
+        //if (res.data.state == "success") {
           let { blogs } = res.data; //list比较特殊？？？
           this.blogList = blogs;
-        } else {
-          this.$router.push('/login');
+        //} else {
+          //this.$router.push('/login');
           console.log(localStorage.getItem("mytoken"));
-         }
-      });
-      /*.catch((error) => {
+        // }
+      })
+     /*封装在了http文件里
+      .catch((error) => {
+        this.$router.push('/login');
         console.log(error);//status状态码
       })*/
     },
