@@ -1,32 +1,39 @@
 <template>
   <div id="app" class="content-box">
-    <com-header ></com-header>
-    <div class="container">
-      <div >
-        <h3>{{ blogs.title }}</h3>
-        <span> {{ blogs.post_time }} </span>
-      </div>
-      <div >{{ blogs.content }}</div>
-      <div >
-        <h4 class="comments">评论</h4>
-        <div  v-for="item in comments" :key="item.comm_id" class="comments">
+    <com-header></com-header>
+    <div class="content">
+      <div class="content-left">
+        <h1 class="title">{{ blogs.title }}</h1>
+        <div class="blogs-content">{{ blogs.content }}</div>
+        <span class="blogs-posttime"> {{ blogs.post_time }} </span>
+        <div class="post-comments">
+          <textarea
+            placeholder="期待你的发言呀"
+            class="comments-textarea"
+            v-model="textComm"
+            rows="10"
+            cols="60"
+          ></textarea>
           <div >
-            <span>评论内容：</span>{{ item.comm_content }}
-          </div>
-          <div class="user-time">
-            <span style="margin-right:10px">{{ item.username }}</span>
-            <span >{{ item.comm_post_time }}</span>
+            {{ message }}
+            <button @click="postComm" >发表评论</button>
           </div>
         </div>
-         <h4>发表评论: <button @click="postComm">发表评论</button>{{message}}</h4>
-        <textarea
-          style="background: #cccccc"
-          name=""
-          id=""
-          cols="110"
-          rows="10"
-          v-model="textComm"
-        ></textarea>
+      </div>
+
+      <div class="content-right">
+        <h4 class="comments">评论</h4>
+        <div v-for="item in comments" :key="item.comm_id" class="">
+          <div class="comments-content">
+            <div >
+              {{ item.comm_content }}
+            </div>
+            <div class="user-time">
+              <span style="margin-right: 10px">{{ item.username }}</span>
+              <span>{{ item.comm_post_time }}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -41,7 +48,7 @@ export default {
       comments: [],
       loginUser: "",
       textComm: "",
-      message: '',
+      message: "",
     };
   },
   name: "app",
@@ -54,12 +61,11 @@ export default {
   methods: {
     getblogId() {
       this.blogId = this.$route.query.blogId;
-      this.$http("/blog/blogDetail", {
+      this.$http("/blogs/blogDetail", {
         params: {
           blogId: this.blogId,
         },
       }).then((res) => {
-        console.log(res);
         let loginUser = localStorage.getItem("loginUser");
         this.loginUser = loginUser;
         this.blogs = res.data.blogs;
@@ -69,17 +75,16 @@ export default {
     postComm() {
       let userId = localStorage.getItem("userId");
       this.$http
-        .post("/blog/postComm", {
+        .post("/blogs/postComm", {
           user_id: userId,
           blog_id: this.blogId,
           content: this.textComm,
         })
         .then((res) => {
-          console.log(res);
-          let {state, message} = res.data;
+          let { state, message } = res.data;
           this.message = message;
-          if(state == 'success'){
-            location.reload();//发表成功
+          if (state == "success") {
+            location.reload(); //发表成功
           }
         });
     },
@@ -88,7 +93,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .content-box {
+.content-box {
   background-image: url("../assets/img/bg.jpg");
   overflow: scroll;
   background-size: cover;
@@ -101,8 +106,59 @@ export default {
   right: 0;
   bottom: 0;
 
-  .container{
-    margin-top: 155px;
+  .content {
+    margin-top: 140px;
+    display: flex;
+    justify-content: center;
+    .content-left {
+      height: 500px;
+      width: 40%;
+      background-color: #fff;
+      border-radius: 4px;
+      padding: 20px;
+      box-sizing: border-box;
+      .title {
+        font-size: x-large;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .blogs-content {
+        font-size: large;
+      }
+
+      .blogs-posttime {
+        font-size: large;
+        float: right;
+      }
+      .post-comments {
+        text-align: center;
+        .comments-textarea {
+          background-color: #fff;
+          border: 1px solid #00a1d6;
+          border-radius: 4px;
+          margin-top: 30px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    .content-right {
+      width: 20%;
+      margin-left: 6px;
+      .comments{
+        text-align: center;
+        font-size: large;
+        font-weight: 600;
+      }
+      .comments-content {
+        background-color: #fff;
+        margin-top: 10px;
+        border-radius: 4px;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+    }
   }
-  }
+}
 </style>

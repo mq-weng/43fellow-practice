@@ -1,40 +1,151 @@
-*{background-color: transparent; font-size: inherit;color: inherit;}
+* {
+  background-color: transparent;
+  font-size: inherit;
+  color: inherit;
+}
 
+html,
+body {
+  font-family: "汉仪旗黑";
+  font-size: 14px;
+  color: #333;
+  background: #f7f7f7;
+  word-wrap: break-word;/*强制换行*/
+}
 
-html,body{font-family: "汉仪旗黑"; font-size: 14px; color: #333; background: #f7f7f7;}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: none;
+  outline: none;
+}
 
-body,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,menu,nav,section{margin: 0;padding: 0;list-style-type: none;border: none;outline: none;}
+a {
+  text-decoration: none;
+  color: #333;
+  outline: 0;
+}
 
-a{text-decoration: none;color: #333; outline: 0;}
+li {
+  list-style: none;
+}
 
-li{list-style: none;}
+img {
+  vertical-align: top; /*display:block;*/
+  border: none;
+}
 
-img{vertical-align: top;/*display:block;*/ border: none;}
+input,
+area {
+  outline: none;
+}
 
-input,area{outline:none;}
+i,
+em {
+  font-style: normal;
+}
 
-i,em{font-style: normal;}
+h1,
+h2,
+h4,
+h5,
+h6,
+h3,
+b,
+strong {
+  font-weight: normal;
+}
 
-h1,h2,h4,h5,h6,h3,b,strong{font-weight: normal;}
+table {
+  border-collapse: collapse;
+}
 
-table{border-collapse: collapse;}
+.clear:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
 
-.clear:after{content:"."; display: block; clear: both; height: 0; visibility: hidden;}
+.fl {
+  float: left;
+}
 
-.fl{float:left;}
+.fr {
+  float: right;
+}
 
-.fr{float:right;}
+.border {
+  border: none !important;
+  background: none !important;
+}
 
-.border{border:none!important;background: none!important;}
+main,
+section,
+nav,
+article,
+aside,
+header,
+footer,
+address {
+  display: block;
+}
 
-main, section, nav, article, aside, header, footer, address {display: block;}
+/*按钮*/
+button {
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  background-color: #00a1d6;
+  cursor: pointer;
+}
 
 /*鼠标*/
-body {  
-    cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/ayuda.cur), auto;
+body {
+  cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/ayuda.cur),
+    auto;
 }
- 
- 
+
 a {
-    cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/No_Disponible.cur), auto
+  cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/No_Disponible.cur),
+    auto;
 }

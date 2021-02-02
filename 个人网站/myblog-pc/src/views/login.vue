@@ -22,7 +22,7 @@
         placeholder="请输入密码"
       />
       <p>
-        <button @click="doLogin" class="btn">登录</button>
+        <button @click="doLogin">登录</button>
       </p>
       <div class="r-link">
         <router-link to="/" style="color: #9b9b9b">返回首页</router-link>
@@ -126,15 +126,6 @@ export default {
       margin-bottom: 20px;
     }
 
-    .btn {
-      border-radius: 4px;
-      border: 1px solid #dcdfe6;
-      color: #fff;
-      height: 40px;
-      line-height: 40px;
-      background-color: #00a1d6;
-      width: 50%;
-    }
 
     .r-link {
       margin-top: 20px;
