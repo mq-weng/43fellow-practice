@@ -44,14 +44,14 @@ export default {
   methods: {
     //检查input里是否为空
     checkUsername() {
-      console.log("blur执行了");
+      // console.log("blur执行了");
       let username = document.getElementById("username");
       if (this.username.length == 0) {
         username.style.display = "block";
       }
     },
     clear() {
-      console.log("focus执行了");
+      // console.log("focus执行了");
       let username = document.getElementById("username");
       username.style.display = "none";
     },

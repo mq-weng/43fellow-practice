@@ -82,7 +82,7 @@ module.exports = {
         } else {
             ctx.body = {
                 state: 'fail',
-                message: "发表失败!",
+                message: "发表失败",
             };
         }
     },

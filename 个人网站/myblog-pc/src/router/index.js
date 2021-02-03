@@ -39,6 +39,11 @@ const routes = [
     name: 'BlogDetail',
     component: () => import(/* webpackChunkName: "index" */ '../views/blogDetail.vue')
   },
+  {
+    path:'/postblogs',
+    name: 'Postblogs',
+    component: () => import(/* webpackChunkName: "index" */ '../views/postblogs.vue')
+  },
 ]
 
 const router = new VueRouter({

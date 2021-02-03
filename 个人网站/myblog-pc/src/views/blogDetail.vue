@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="content-box">
-    <com-header></com-header>
+    <com-header :loginUser="loginUser"></com-header>
     <div class="content">
       <div class="content-left">
-        <h1 class="title">{{ blogs.title }}</h1>
-        <div class="blogs-content">{{ blogs.content }}</div>
-        <span class="blogs-posttime"> {{ blogs.post_time }} </span>
+        <h1 class="title">{{ blogs && blogs.title }}</h1>
+        <div class="blogs-content">{{ blogs && blogs.content }}</div>
+        <span class="blogs-posttime"> {{blogs && blogs.post_time }} </span>
         <div class="post-comments">
           <textarea
             placeholder="期待你的发言呀"
@@ -44,7 +44,7 @@ import ComHeader from "../components/header";
 export default {
   data() {
     return {
-      blogs: {},
+      blogs: null,
       comments: [],
       loginUser: "",
       textComm: "",
@@ -81,12 +81,13 @@ export default {
           content: this.textComm,
         })
         .then((res) => {
+          console.log("postcomm" + res);
           let { state, message } = res.data;
           this.message = message;
           if (state == "success") {
             location.reload(); //发表成功
           }
-        });
+        })
     },
   },
 };

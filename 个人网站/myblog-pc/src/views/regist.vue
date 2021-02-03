@@ -3,14 +3,13 @@
   <div>
     <div class="container">
       <div class="login-form">
-         <p style="padding-top: 20px;">用户注册</p>
+        <p style="padding-top: 20px">用户注册</p>
         <div style="height: 20px">
-          <span class="error_tips" id="username">用户名不能为空！</span>
-        <h4>{{message}}</h4>
+          <span class="error_tips" id="username">{{ message }}</span>
         </div>
         <p>
           <input
-          placeholder="请输入用户名"
+            placeholder="请输入用户名"
             type="text"
             v-model="username"
             @blur="checkUsername"
@@ -19,15 +18,20 @@
         </p>
 
         <p>
-          <input type="password" name="password" v-model="password" placeholder="请输入密码"/>
+          <input
+            type="password"
+            name="password"
+            v-model="password"
+            placeholder="请输入密码"
+          />
         </p>
         <p>
           <button @click="doRegist">注册</button>
         </p>
-         <div class="r-link">
-        <router-link to="/" style="color: #9b9b9b">返回首页</router-link>
-        <router-link to="/login" class="regist">登录</router-link>
-      </div>
+        <div class="r-link">
+          <router-link to="/" style="color: #9b9b9b">返回首页</router-link>
+          <router-link to="/login" class="regist">登录</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -47,14 +51,15 @@ export default {
   methods: {
     //检查input里是否为空
     checkUsername() {
-      console.log("blur执行了");
+      // console.log("blur执行了");
       let username = document.getElementById("username");
       if (this.username.length == 0) {
         username.style.display = "block";
+        this.message = "用户名不能为空";
       }
     },
     clear() {
-      console.log("focus执行了");
+      // console.log("focus执行了");
       let username = document.getElementById("username");
       username.style.display = "none";
     },
@@ -66,10 +71,9 @@ export default {
           nickname: this.nickname,
         })
         .then((res) => {
-          let { state } = res.data;
-          if (state == "success") {
-            this.message = res.data.message;
-          }
+          let username = document.getElementById("username");
+          username.style.display = "block";
+          this.message = res.data.message;
         });
     },
   },
@@ -103,7 +107,7 @@ export default {
       color: red;
     }
 
-     input {
+    input {
       border-radius: 4px;
       border: 1px solid #dcdfe6;
       box-sizing: border-box;
@@ -112,10 +116,9 @@ export default {
       line-height: 40px;
       width: 70%;
       margin-bottom: 20px;
-
     }
 
-     .r-link {
+    .r-link {
       margin-top: 20px;
 
       .regist {
@@ -127,10 +130,7 @@ export default {
     .icon :before {
       content: "\e6e3";
     }
-
   }
-    
-  
 }
 </style>
 

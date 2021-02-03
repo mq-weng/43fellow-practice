@@ -1,12 +1,12 @@
 import axios from 'axios';
-// import store from '../store'
-// import app from '../main'
+import store from '../store'
+import app from '../main'
 const instance = axios.create({
     baseURL: 'http://localhost:3000',
     timeout: 60000,
     data:{}
 });
-/*
+
 // 添加请求拦截器
 instance.interceptors.request.use(function (config) {
     // Do something before request is sent
@@ -17,6 +17,7 @@ instance.interceptors.request.use(function (config) {
     // Do something with request error
     return Promise.reject(error);
 });
+
 
 //添加响应拦截器
 instance.interceptors.response.use(function (response) {
@@ -32,6 +33,6 @@ instance.interceptors.response.use(function (response) {
         app.$router.push('/login');
     }
     return Promise.reject(error);
-  });*/
+  });
 
 export default instance

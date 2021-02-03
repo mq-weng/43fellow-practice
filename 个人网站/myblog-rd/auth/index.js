@@ -11,7 +11,6 @@ module.exports = {
             let parts = ctx.header.authorization;
             let bearer =  parts.split(" ")[0];
             let token = parts.split(" ")[1];
-            console.log(token)
             if(/^Bearer$/.test(bearer)){
                 try {
                     jwt.verify(token, secretKey);
@@ -22,7 +21,6 @@ module.exports = {
                         state: "fail",
                         token: "token不存在或已过期"
                     }
-                    console.log('blog' + err)
                 }
             }
         }

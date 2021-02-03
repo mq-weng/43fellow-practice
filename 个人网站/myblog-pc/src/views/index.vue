@@ -1,6 +1,6 @@
 <template>
   <div class="content-box" id="app">
-    <com-header></com-header>
+    <com-header :loginUser = "loginUser"></com-header>
     <div class="content">
       <div class="user-card">
         <div class="photo-wrapper">
@@ -23,6 +23,10 @@
             <p>日记</p>
             <!-- 记得放数据  -->
           </router-link>
+        </div>
+
+        <div class="postblogs">
+          <router-link to="/postblogs">发表文章</router-link>
         </div>
       </div>
       <div class="blogs">
@@ -54,6 +58,7 @@ export default {
   data() {
     return {
       blogList: [],
+      loginUser: "",
     };
   },
   created() {
@@ -66,7 +71,7 @@ export default {
         url: "/blogs/list",
       }).then((res) => {
         let { blogs } = res.data;
-        // this.loginUser = localStorage.getItem("loginUser");
+        this.loginUser = localStorage.getItem("loginUser");
         this.blogList = blogs;
         // console.log(localStorage.getItem("mytoken"));
       });
@@ -110,6 +115,13 @@ export default {
         justify-content: space-around;
         .u-c-content {
           margin-top: 20px;
+        }
+      }
+
+      .postblogs{
+        margin-top: 20px;
+        a{
+          color: #00a1d6;
         }
       }
     }
