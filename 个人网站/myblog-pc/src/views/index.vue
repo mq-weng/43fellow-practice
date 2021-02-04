@@ -35,7 +35,7 @@
           <!-- 这里后期换掉,可以为文章详细分类 -->
         </div>
         <div class="blogs-content" v-for="item in blogList" :key="item.blog_id">
-          <h3 class="">
+          <h3>
             <!-- <a href="/blog/detail/">{{ item.blogTitle }}</a> -->
             <router-link
               :to="{ path: '/blogDetail', query: { blogId: item.blog_id } }"

@@ -23,7 +23,8 @@
 
       <div class="content-right">
         <h4 class="comments">评论</h4>
-        <div v-for="item in comments" :key="item.comm_id" class="">
+        <div v-if="comments.length > 1"><!-- 大于0会出现一个不知道哪里来的时间 -->
+          <div v-for="item in comments" :key="item.comm_id">
           <div class="comments-content">
             <div >
               {{ item.comm_content }}
@@ -34,7 +35,16 @@
             </div>
           </div>
         </div>
+        </div>
+        <div v-else class="comments-content">
+          <span>还没有人评论哦</span>
+        </div>
+
+
+
       </div>
+
+
     </div>
   </div>
 </template>
