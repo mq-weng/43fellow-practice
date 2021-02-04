@@ -3,7 +3,7 @@
     <div class="login-form">
       <p style="padding-top: 20px;">用户登录</p>
       <div style="height: 20px;">
-        <span class="error_tips" id="username">用户名不能为空！</span>
+        <span class="error_tips" id="username">{{message}}</span>
       </div>
       <input
         type="text"
@@ -48,6 +48,7 @@ export default {
       let username = document.getElementById("username");
       if (this.username.length == 0) {
         username.style.display = "block";
+        this.message = "用户名不能为空";
       }
     },
     clear() {
@@ -62,6 +63,8 @@ export default {
           password: this.password,
         })
         .then((res) => {
+          let username = document.getElementById("username");
+          username.style.display = "block";
           let {
             inputState,
             message,
@@ -106,7 +109,7 @@ export default {
     border-radius: 4px;
     width: 20%;
     background-color: #fff;
-    height: 300px;
+    height: 350px;
     margin-top: 150px;
     text-align: center;
 

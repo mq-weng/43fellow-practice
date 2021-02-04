@@ -19,12 +19,21 @@
 
         <p>
           <input
+            placeholder="请输入昵称"
+            type="text"
+            v-model="nickname"
+          />
+        </p>
+
+        <p>
+          <input
             type="password"
             name="password"
             v-model="password"
             placeholder="请输入密码"
           />
         </p>
+
         <p>
           <button @click="doRegist">注册</button>
         </p>
@@ -40,7 +49,7 @@
 export default {
   data() {
     return {
-      /*nickname不要了 */
+      nickname: "", 
       username: "",
       password: "",
       blur: "",
@@ -98,7 +107,7 @@ export default {
     border-radius: 4px;
     width: 20%;
     background-color: #fff;
-    height: 300px;
+    height: 350px; 
     margin-top: 150px;
     text-align: center;
 

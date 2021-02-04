@@ -9,7 +9,7 @@
         <p>是美七呀</p>
         <div class="u-c-link">
           <router-link to="/" class="u-c-content">
-            <p style="color: #00a1d6">25</p>
+            <p style="color: #00a1d6">{{blogsNumber}}</p>
             <p>文章</p>
             <!-- 记得放数据  -->
           </router-link>
@@ -31,7 +31,7 @@
       </div>
       <div class="blogs">
         <div class="blogs-header">
-          <span>文章<div class="blogs-num">25</div></span>
+          <span>文章<div class="blogs-num">{{blogsNumber}}</div></span>
           <!-- 这里后期换掉,可以为文章详细分类 -->
         </div>
         <div class="blogs-content" v-for="item in blogList" :key="item.blog_id">
@@ -59,6 +59,7 @@ export default {
     return {
       blogList: [],
       loginUser: "",
+      blogsNumber: 0,
     };
   },
   created() {
@@ -73,6 +74,7 @@ export default {
         let { blogs } = res.data;
         this.loginUser = localStorage.getItem("loginUser");
         this.blogList = blogs;
+        this.blogsNumber = blogs.length;
         // console.log(localStorage.getItem("mytoken"));
       });
     },
