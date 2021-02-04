@@ -69,6 +69,8 @@ export default {
     this.getblogId();
   },
   methods: {
+
+    //获取文章详情
     getblogId() {
       this.blogId = this.$route.query.blogId;
       this.$http("/blogs/blogDetail", {
@@ -82,6 +84,7 @@ export default {
         this.comments = this.blogs.comments;
       });
     },
+    //发表评论
     postComm() {
       let userId = localStorage.getItem("userId");
       this.$http

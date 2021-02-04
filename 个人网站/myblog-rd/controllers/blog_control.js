@@ -9,8 +9,7 @@ module.exports = {
         console.log(results);
         for(i in results){
             let {post_time} = results[i];
-            time = new Date(post_time);
-            results[i].post_time = date.formatTime(time,"YYYY-mm-dd HH:MM");
+            results[i].post_time = date.formatTime(post_time,"YYYY-mm-dd HH:MM");
         }
         ctx.body = {
             blogs: results,
@@ -19,11 +18,10 @@ module.exports = {
 
     async blogDetail(ctx) {
         let results = await blogModels.getBlogDetail(ctx.query.blogId);
-        console.log(results);
+        // console.log(results);
         if (results.length > 0) {
             let { title, content, post_time, blog_id } = results[0];
-            let time = new Date(post_time);
-            post_time = date.formatTime(time,"YYYY-mm-dd HH:MM");
+            post_time = date.formatTime(post_time,"YYYY-mm-dd HH:MM");
             let blogInfo = {
                 blog_id,
                 title,
@@ -32,11 +30,11 @@ module.exports = {
             };
             // console.log(blogInfo);
             blogInfo.comments = [];
+
+
             for (let i = 0; i < results.length; i++) {
                 let obj = results[i];
-                let timecomm = new Date(obj.comm_post_time);
-                console.log(timecomm);
-                obj.comm_post_time = date.formatTime(timecomm,"YYYY-mm-dd HH:MM");
+                obj.comm_post_time = date.formatTime(obj.comm_post_time,"YYYY-mm-dd HH:MM");
                 blogInfo.comments.push({
                     comm_id: obj.comm_id,
                     comm_content: obj.comm_content,
@@ -86,4 +84,14 @@ module.exports = {
             };
         }
     },
+
+    async getComm(ctx) {
+        let results = await blogModels.getComm(ctx.query.user_id);
+        for (let i = 0; i < results.length; i++) {
+            results[i].post_time = date.formatTime(results[i].post_time,"YYYY-mm-dd HH:MM");
+        }
+        ctx.body = {
+            results
+        };
+    }
 }

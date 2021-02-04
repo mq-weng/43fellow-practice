@@ -17,6 +17,9 @@ module.exports = {
     },
     savePostComm(blogComm){
         return db.query(`INSERT INTO t_comment SET ?`,[blogComm])  
+    },
+    getComm(userId){
+        return db.query('SELECT * FROM t_comment where user_id=?',[userId])
     }
 
 }

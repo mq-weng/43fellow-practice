@@ -8,7 +8,7 @@
       <div class="header-img">
         <img src="../assets/img/header-user.jpg" alt="" />
       </div>
-      <div v-if="loginUser" style="text-align: center;"> {{loginUser}}</div>
+      <div v-if="loginUser" style="text-align: center;"> <router-link to="/userDetail">{{loginUser}}</router-link></div>
       <div v-else><router-link to="/login" class="l-r">登录</router-link>|
       <router-link to="/regist" class="l-r">注册</router-link></div>
     </div>

@@ -1,6 +1,7 @@
 
 module.exports ={
     formatTime(timestamp, fmt) {
+        timestamp = new Date(timestamp);
         let ret;
         let opt = {
             "Y+": timestamp.getFullYear().toString(),        // 年
@@ -20,6 +21,7 @@ module.exports ={
         return fmt;
     
     },
+
 } 
 
 
