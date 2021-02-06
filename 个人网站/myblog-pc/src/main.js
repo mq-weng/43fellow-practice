@@ -6,7 +6,9 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 //import VueAxios from 'vue-axios'
 import http from '../src/utils/http';
-import  '../src/assets/css/reset.css';
+import  '../src/assets/css/reset.css';//样式重置
+
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI);
