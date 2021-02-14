@@ -3,3 +3,9 @@
 <button bindtap="add1" type="primary">加一</button>
 <!-- <button data-step="{{5}}" bindtap="add5" type="primary">加五</button> -->
 <button data-step="5" bindtap="add5" type="primary">加五</button>
+<!-- catchtap阻止事件冒泡 -->
+<view class="square1" catchtap="click1">
+  <view class="square2" catchtap="click2">
+    <view class="square3" catchtap="click3"></view>    
+  </view>
+</view>

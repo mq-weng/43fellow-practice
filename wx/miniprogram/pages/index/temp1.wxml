@@ -1,5 +1,5 @@
  <template name="content">
     <view>
-      {{age}}
+     age {{age}}
     </view>
   </template>

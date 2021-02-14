@@ -1,38 +1,18 @@
-// miniprogram/pages/one/one.js
+// miniprogram/pages/vanttest/vanttest.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    num:0,
+
   },
-add1(){//小程序逻辑层与数据层分开，要调用setData方法进行同步
-  this.setData({
-    num:this.data.num + 1,
-  });
-},
-add5(e){
-  this.setData({
-    num:this.data.num + Number.parseInt(e.target.dataset.step),//step时string类型需要强制转换
-    // num:this.data.num + e.target.dataset.step,
-  })
-},
-click1(){
-  console.log("1")
-},
-click2(){
-  console.log("2")
-},
-click3(){
-  console.log("3")
-},
+
   /**
    * 生命周期函数--监听页面加载
    */
-  /*获取传过来的数据 */
   onLoad: function (options) {
-    console.log(options)//id=111
+
   },
 
   /**
