@@ -1,0 +1,4 @@
+
+<button bindtap="get" type="primary">调用云函数</button>
+<button bindtap="set" type="primary">修改</button>
+<button bindtap="add" type="primary">添加记录</button>
