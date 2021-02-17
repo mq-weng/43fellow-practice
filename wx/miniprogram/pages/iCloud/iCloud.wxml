@@ -1,0 +1,3 @@
+<button type="primary" bindtap="choose">选择图片</button>
+<image src="{{imgUrl}}"></image>
+<button type="primary" bindtap="upload">上传图片</button>
