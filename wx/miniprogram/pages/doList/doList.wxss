@@ -1,0 +1,28 @@
+button{
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.header{
+  display: flex;
+}
+.input{
+  margin-left: 8rpx;
+  width: 75%;
+}
+.switch-box{
+  margin: 10rpx 8rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.switch-text{
+  line-height: 80rpx;
+}
+.text{
+  display: flex;
+  justify-content: space-around;
+  border-bottom:2px solid black;
+}
+.content{
+  display: flex;
+}

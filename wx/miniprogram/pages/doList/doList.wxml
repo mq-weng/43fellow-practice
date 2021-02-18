@@ -1,0 +1,19 @@
+<view class="header">
+  <input type="text" placeholder="请输入待办事项" class="input" bindblur="input" />
+  <button type="primary" bindtap="add">添加</button>
+</view>
+<view class="switch-box">
+  <view class="switch-text">查看未完成事项:</view>
+  <switch checked="{{state}}" bindtap=""></switch>
+</view>
+<view class="text">
+  <text>序号</text>
+  <text>待办事项</text>
+  <text>操作</text>
+</view>
+<view class="content" wx:for="{{info}}" wx:key="index">
+  {{index+1}}
+  <checkbox></checkbox>
+  <text>{{item.info}}</text>
+  <button type="primary">完成</button>
+</view>
