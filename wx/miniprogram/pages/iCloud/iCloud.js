@@ -9,18 +9,19 @@ Page({
   },
   choose() {
     wx.chooseImage({
-      count: 1,
-    }).then(res => {
-      this.setData({
-        imgUrl: res.tempFilePaths
-      })
+      complete: (res) => {
+        this.setData({
+          imgUrl: res.tempFilePaths[0]
+        })
+      }
     })
-
   },
   upload() {
+    let fName = Date.parse(new Date());
+    let fileExtension = this.data.imgUrl.replace(/.+\./, "");
     wx.cloud.uploadFile({
-      cloudPath: 'example.png', // 上传至云端的路径
-      filePath: thihs.data.imgUrl, // 小程序临时文件路径
+      cloudPath: 'fellow/' + fName + '.' + fileExtension, // 上传至云端的路径
+      filePath: this.data.imgUrl, // 小程序临时文件路径
       success: res => {
         // 返回文件 ID
         console.log(res.fileID)
