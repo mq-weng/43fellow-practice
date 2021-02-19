@@ -25,4 +25,7 @@ button{
 }
 .content{
   display: flex;
+  justify-content: space-between;
+  padding: 10rpx 10rpx;
+  border-bottom:2px solid black;
 }

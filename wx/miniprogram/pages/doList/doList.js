@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    swithState: false,
     state: false,
     inputValue: "",
     info: [],
@@ -20,6 +21,7 @@ Page({
     schedule.add({
       data: {
         info: this.data.inputValue,
+        state: this.data.state
       }
     }).then(res => {
       console.log(res);
@@ -28,7 +30,17 @@ Page({
   select() {
     schedule.get().then(res => {
       console.log(res);
-      this.setData({info: res.data})
+      this.setData({
+        info: res.data
+      })
+    })
+  },
+  switchChange(e) {
+
+  },
+  finish() {
+    schedule.update({
+      
     })
   },
   /**

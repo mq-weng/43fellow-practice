@@ -4,7 +4,7 @@
 </view>
 <view class="switch-box">
   <view class="switch-text">查看未完成事项:</view>
-  <switch checked="{{state}}" bindtap=""></switch>
+  <switch checked="{{swithState}}" bindchange="switchChange"></switch>
 </view>
 <view class="text">
   <text>序号</text>
@@ -12,8 +12,12 @@
   <text>操作</text>
 </view>
 <view class="content" wx:for="{{info}}" wx:key="index">
-  {{index+1}}
+  <view style="margin-left:50rpx">
+    {{index+1}}
   <checkbox></checkbox>
-  <text>{{item.info}}</text>
-  <button type="primary">完成</button>
+  </view>
+  <view>{{item.info}}</view>
+  <view>
+    <button type="primary" bindtap="finish">完成</button>
+  </view>
 </view>
