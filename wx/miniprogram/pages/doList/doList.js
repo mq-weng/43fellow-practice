@@ -1,7 +1,6 @@
 const db = wx.cloud.database();
 const schedule = db.collection('schedule');
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -38,10 +37,8 @@ Page({
   switchChange(e) {
 
   },
-  finish() {
-    schedule.update({
-      
-    })
+  finish(e) {
+    console.log(e.detail);
   },
   /**
    * 生命周期函数--监听页面加载

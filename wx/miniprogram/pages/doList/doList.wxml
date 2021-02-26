@@ -6,18 +6,31 @@
   <view class="switch-text">查看未完成事项:</view>
   <switch checked="{{swithState}}" bindchange="switchChange"></switch>
 </view>
-<view class="text">
-  <text>序号</text>
-  <text>待办事项</text>
-  <text>操作</text>
-</view>
-<view class="content" wx:for="{{info}}" wx:key="index">
-  <view style="margin-left:50rpx">
-    {{index+1}}
-  <checkbox></checkbox>
+<view >
+  <view class="text">
+    <text>序号</text>
+    <text>待办事项</text>
+    <text>操作</text>
   </view>
-  <view>{{item.info}}</view>
-  <view>
-    <button type="primary" bindtap="finish">完成</button>
+  <view class="content" wx:for="{{info}}" wx:key="index" hidden="">
+    <view style="margin-left:50rpx">
+      {{index+1}}
+      <checkbox></checkbox>
+    </view>
+    <view>{{item.info}}</view>
+    <view>
+      <button type="primary"  bindtap="finish">完成</button>
+    </view>
+  </view>
+</view>
+
+<view hidden="switchstate">
+  <view class="text">
+    <text>序号</text>
+    <text>已完成事项</text>
+    <text>操作</text>
+  </view>
+  <view class="content" wx:for="{{info}}" wx:key="index" hidden="">
+    <button type="primary" bindtap="delet">删除</button>
   </view>
 </view>
