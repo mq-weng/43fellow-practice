@@ -30,15 +30,34 @@ Page({
     schedule.get().then(res => {
       console.log(res);
       this.setData({
-        info: res.data
+        allInfo: res.data
       })
     })
   },
   switchChange(e) {
-
+    console.log(e.detail);
+    this.setData({
+      swithState: e.detail,
+    })
+    this.select()
   },
   finish(e) {
-    console.log(e.detail);
+    console.log(e.target.dataset.id);
+    let id = e.target.dataset.id;
+    schedule.doc(id).update({
+      data: {
+        state: true //点击完成state为true
+      },
+    }).then(res => {
+        console.log(res)
+    })
+  },
+  delet(e){
+    console.log(e.target.dataset.id);
+    let id = e.target.dataset.id;
+    schedule.doc(id).remove().then(res => {
+        console.log(res)
+    })
   },
   /**
    * 生命周期函数--监听页面加载
