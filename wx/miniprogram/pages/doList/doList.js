@@ -1,4 +1,5 @@
 const db = wx.cloud.database();
+const _ = db.command;
 const schedule = db.collection('schedule');
 Page({
   /**
@@ -9,6 +10,7 @@ Page({
     state: false,
     inputValue: "",
     info: [],
+    idList: [],
   },
   input(e) {
     console.log(e.detail.value);
@@ -25,21 +27,33 @@ Page({
     }).then(res => {
       console.log(res);
     })
+    this.select()
   },
   select() {
-    schedule.get().then(res => {
-      console.log(res);
-      this.setData({
-        allInfo: res.data
+    console.log(this.data.idList)
+    if (this.data.swithState == true) {
+      schedule.where({
+        state: false
+      }).get().then(res => {
+        // console.log(res);
+        this.setData({
+          allInfo: res.data
+        })
       })
-    })
+    } else {
+      schedule.get().then(res => {
+        // console.log(res);
+        this.setData({
+          allInfo: res.data
+        })
+      })
+    }
   },
   switchChange(e) {
-    console.log(e.detail);
     this.setData({
-      swithState: e.detail,
+      swithState: e.detail.value,
     })
-    this.select()
+    this.select();
   },
   finish(e) {
     console.log(e.target.dataset.id);
@@ -49,15 +63,49 @@ Page({
         state: true //点击完成state为true
       },
     }).then(res => {
-        console.log(res)
+      console.log(res)
     })
+    this.select()
   },
-  delet(e){
+  delet(e) {
     console.log(e.target.dataset.id);
     let id = e.target.dataset.id;
     schedule.doc(id).remove().then(res => {
-        console.log(res)
+      console.log(res)
     })
+    this.select()
+  },
+  isCheck() {
+    this.setData({
+      isCheck: !this.data.isCheck
+    })
+  },
+  check(e) {
+    console.log(e)
+    this.setData({
+      idList: e.detail.value
+    })
+  },
+  group(e) {
+    console.log(e)
+    if (e.target.dataset.groupstate == 'finish') {
+      schedule.where({
+        _id: _.in(this.data.idList)
+      }).update({
+        data: {
+          state: true
+        }
+      }).then(res => {
+        console.log(res)
+      })
+    } else {
+      schedule.where({
+        _id: _.in(this.data.idList)
+      }).remove().then(res => {
+        console.log(res)
+      })
+    }
+    this.select()
   },
   /**
    * 生命周期函数--监听页面加载

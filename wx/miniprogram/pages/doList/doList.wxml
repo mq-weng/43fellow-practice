@@ -12,19 +12,22 @@
     <text>待办事项</text>
     <text>操作</text>
   </view>
-  <view class="content" wx:for="{{allInfo}}" wx:key="index">
-    <view style="margin-left:50rpx">
-      {{index+1}}
-      <checkbox></checkbox>
+
+  <checkbox-group bindchange="check" >
+    <view class="content" wx:for="{{allInfo}}" wx:key="index">
+      <view style="margin-left:50rpx">
+        {{index+1}}
+        <checkbox value="{{item._id}}"></checkbox>
+      </view>
+      <view>{{item.info}}</view>
+      <view wx:if="{{item.state==false}}">
+        <button type="primary" bindtap="finish" data-id="{{item._id}}">完成</button>
+      </view>
+      <view wx:else>
+        <button type="warn" bindtap="delet" data-id="{{item._id}}">删除</button>
+      </view>
     </view>
-    <view>{{item.info}}</view>
-    <view wx:if="{{item.state==false}}">
-      <button type="primary" bindtap="finish" data-id="{{item._id}}">完成</button>
-    </view>
-    <view wx:else>
-      <button type="primary" bindtap="delet" data-id="{{item._id}}">删除</button>
-    </view>
-  </view>
+  </checkbox-group>
 </view>
 
 <view wx:else>
@@ -37,4 +40,5 @@
     <button type="primary" bindtap="delet" data-id="{{item._id}}">删除</button>
   </view>
 </view>
-<button type="primary" style="margin-top:20rpx">标记完成</button>
+<button type="primary" style="margin-top:20rpx" bindtap="group" data-groupState="finish">标记完成</button>
+<button type="warn" style="margin-top:20rpx" bindtap="group">标记删除</button>
