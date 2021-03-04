@@ -1,5 +1,5 @@
 const db = wx.cloud.database();
-const _ = db.command;
+// const _ = db.command;
 const schedule = db.collection('schedule');
 Page({
   /**
@@ -11,6 +11,7 @@ Page({
     inputValue: "",
     info: [],
     idList: [],
+    allInfo: [],
   },
   input(e) {
     console.log(e.detail.value);
@@ -22,27 +23,23 @@ Page({
     schedule.add({
       data: {
         info: this.data.inputValue,
-        state: this.data.state
+        state: this.data.state,
       }
     }).then(res => {
-      console.log(res);
+      this.select()
     })
-    this.select()
   },
   select() {
-    console.log(this.data.idList)
     if (this.data.swithState == true) {
       schedule.where({
         state: false
       }).get().then(res => {
-        // console.log(res);
         this.setData({
           allInfo: res.data
         })
       })
     } else {
       schedule.get().then(res => {
-        // console.log(res);
         this.setData({
           allInfo: res.data
         })
@@ -56,24 +53,19 @@ Page({
     this.select();
   },
   finish(e) {
-    console.log(e.target.dataset.id);
-    let id = e.target.dataset.id;
-    schedule.doc(id).update({
+    schedule.doc(e.target.dataset.id).update({
       data: {
         state: true //点击完成state为true
       },
     }).then(res => {
-      console.log(res)
+      this.select()
     })
-    this.select()
+    // this.select()放这里为什么不执行???
   },
   delet(e) {
-    console.log(e.target.dataset.id);
-    let id = e.target.dataset.id;
-    schedule.doc(id).remove().then(res => {
-      console.log(res)
+    schedule.doc(e.target.dataset.id).remove().then(res => {
+      this.select()
     })
-    this.select()
   },
   isCheck() {
     this.setData({
@@ -81,31 +73,21 @@ Page({
     })
   },
   check(e) {
-    console.log(e)
     this.setData({
       idList: e.detail.value
     })
   },
   group(e) {
-    console.log(e)
-    if (e.target.dataset.groupstate == 'finish') {
-      schedule.where({
-        _id: _.in(this.data.idList)
-      }).update({
-        data: {
-          state: true
-        }
-      }).then(res => {
-        console.log(res)
-      })
-    } else {
-      schedule.where({
-        _id: _.in(this.data.idList)
-      }).remove().then(res => {
-        console.log(res)
-      })
-    }
-    this.select()
+    wx.cloud.callFunction({
+      name: 'group',
+      data: {
+        type: e.target.dataset.groupstate,
+        idList: this.data.idList
+      }
+    }).then(res => {
+      console.log(res);
+      this.select()
+    })
   },
   /**
    * 生命周期函数--监听页面加载

@@ -12,12 +12,12 @@
     <text>待办事项</text>
     <text>操作</text>
   </view>
-
   <checkbox-group bindchange="check" >
     <view class="content" wx:for="{{allInfo}}" wx:key="index">
       <view style="margin-left:50rpx">
         {{index+1}}
-        <checkbox value="{{item._id}}"></checkbox>
+        <!-- item.isDone为啥??????? -->
+        <checkbox value="{{item._id}}" checked="{{item.isDone}}"></checkbox>
       </view>
       <view>{{item.info}}</view>
       <view wx:if="{{item.state==false}}">
@@ -41,4 +41,4 @@
   </view>
 </view>
 <button type="primary" style="margin-top:20rpx" bindtap="group" data-groupState="finish">标记完成</button>
-<button type="warn" style="margin-top:20rpx" bindtap="group">标记删除</button>
+<button type="warn" style="margin-top:20rpx" bindtap="group" data-groupState="delet">标记删除</button>
